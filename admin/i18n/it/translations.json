@@ -1,5 +1,16 @@
 {
-    "nsclient adapter settings": "Impostazioni dell'adattatore per nsclient",
-    "option1": "opzione 1",
-    "option2": "opzione 2"
+    "lblDevs": "Dispositivi",
+    "lblDevsInfo": "Devi specificare almeno sul gruppo OID per aggiungere alcuni dispositivi",
+    "lblDevsDevices": "Dispositivi",
+    "lblDevAct": "attivo",
+    "lblDevName": "Nome",
+    "lblDevIpAddr": "Indirizzo IP",
+    "lblDevTimeout": "timeout (sec)",
+    "lblDevPollIntvl": "sondaggi (sec)",
+    "lblDevUse": "Utente",
+    "lblDevPwd": "Parola d'ordine",
+    "lblDevChkCpu": "controlla cpu",
+    "lblDevChkMem": "controlla la memoria",
+    "lblDevChkDrives": "controllare le unità",
+    "lblDevUser": "Nome utente"
 }

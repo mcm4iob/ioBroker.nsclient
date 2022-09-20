@@ -1,5 +1,16 @@
 {
-    "nsclient adapter settings": "Adapterinstellingen voor nsclient",
-    "option1": "Optie 1",
-    "option2": "Optie 2"
+    "lblDevs": "Apparaten",
+    "lblDevsInfo": "U moet ten minste een OID-groep specificeren om sommige apparaten toe te voegen",
+    "lblDevsDevices": "Apparaten",
+    "lblDevAct": "actief",
+    "lblDevName": "Naam",
+    "lblDevIpAddr": "IP adres",
+    "lblDevTimeout": "time-out (sec)",
+    "lblDevPollIntvl": "polling (sec)",
+    "lblDevUse": "Gebruiker",
+    "lblDevPwd": "Wachtwoord",
+    "lblDevChkCpu": "controleer cpu",
+    "lblDevChkMem": "geheugen controleren",
+    "lblDevChkDrives": "controleer schijven",
+    "lblDevUser": "gebruikersnaam"
 }

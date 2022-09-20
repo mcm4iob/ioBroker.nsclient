@@ -1,16 +1,142 @@
 {
     "i18n": true,
-    "type": "panel",
+    "type": "tabs",
     "items": {
-        "option1": {
-            "type": "checkbox",
-            "label": "option1",
-            "newLine": true
+        "devices": {
+            "type": "panel",
+            "label": "lblDevs",
+            "items": {                        
+                "_test": {
+                    "type": "sendTo",
+                    "width": "10% ",
+                    "label": "lblDevTest",
+                    "icon": "send",
+                    "command": "send",
+                    "jsonData":  {"subject1": "value1"}
+                },
+                "devs": {
+                    "type": "table",
+					"newLine": true,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "label": "lblDevsDevices",
+                    "showSecondAddAt":5,
+                    "items": [
+                        {
+                            "type": "checkbox",
+                            "attr": "devAct",
+                            "width": "5% ",
+                            "title": "lblDevAct",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        },
+                        {
+                            "type": "text",
+                            "attr": "devName",
+                            "width": "30% ",
+                            "title": "lblDevName",
+                            "filter": false,
+                            "sort": false,
+                            "default": "",
+                            "validator": "return(data.devName != '')",
+                            "validatorErrorText" : "errDevName",
+                            "validatorNoSaveOnError" : true                            
+                        },
+                        {
+                            "type": "text",
+                            "attr": "devIpAddr",
+                            "width": "30% ",
+                            "title": "lblDevIpAddr",
+                            "filter": false,
+                            "sort": false,
+                            "default": "0.0.0.0"
+                        },
+                        {
+                            "type": "text",
+                            "attr": "devUser",
+                            "width": "10% ",
+                            "title": "lblDevUser",
+                            "filter": false,
+                            "sort": false,
+                            "default": ""
+                        },
+                        {
+                            "type": "password",
+                            "attr": "devPwd",
+                            "width": "10% ",
+                            "title": "lblDevPwd",
+                            "visible": true,
+                            "filter": false,
+                            "sort": false,
+                            "default": ""
+                        },
+                        {
+                            "type": "number",
+                            "attr": "devPollIntvl",
+                            "width": "5% ",
+                            "title": "lblDevPollIntvl",
+                            "filter": false,
+                            "sort": false,
+                            "min": 5,
+                            "max": 3600,
+                            "default": "30"
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "devChkCpu",
+                            "width": "5% ",
+                            "title": "lblDevChkCpu",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "devChkMem",
+                            "width": "5% ",
+                            "title": "lblDevChkMem",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        },
+                        {
+                            "type": "checkbox",
+                            "attr": "devChkDrives",
+                            "width": "5% ",
+                            "title": "lblDevChkDrives",
+                            "filter": false,
+                            "sort": false,
+                            "default": true
+                        },
+                        {
+                            "type": "sendTo",
+                            "attr": "devTest",
+                            "width": "10% ",
+                            "title": "lblDevTest",
+                            "icon": "send",
+                            "command": "send",
+                            "jsonData":  {"subject1": "value1"}
+                        }
+                    ]
+                }
+            }
         },
-        "option2": {
-            "type": "text",
-            "label": "option2",
-            "newLine": true
-        }
-    }
+
+        "options": {
+            "type": "panel",
+            "label": "lblOptions",
+            "items": {
+				"optUseName": 	{
+                    "type": "checkbox",
+                    "label": "lblOptUseIp",
+					"newLine": true,
+                    "default": false,
+                    "tooltip": "ttOptUseIp",
+                    "help": "hlpOptUseIp"
+                }
+            }
+		}        
+	}
 }

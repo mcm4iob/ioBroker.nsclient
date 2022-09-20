@@ -1,5 +1,15 @@
 {
-    "nsclient adapter settings": "Adaptereinstellungen für nsclient",
-    "option1": "Option 1",
-    "option2": "Option 2"
+    "lblDevs": "Geräte",
+    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um einige Geräte hinzuzufügen",
+    "lblDevsDevices": "Geräte",
+    "lblDevAct": "aktiv",
+    "lblDevName": "Name",
+    "lblDevIpAddr": "IP Adresse",
+    "lblDevUse": "Benutzer",
+    "lblDevPwd": "Passwort",
+    "lblDevPollIntvl": "Abfrage (Sek.)",
+    "lblDevChkCpu": "CPU prüfen",
+    "lblDevChkMem": "Speicher prüfen",
+    "lblDevChkDrives": "Laufwerke prüfen",
+    "lblDevUser": "Nutzername"
 }

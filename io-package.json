@@ -30,8 +30,8 @@
             "zh-cn": "NSClient++ 监视器"
         },
         "desc": {
-            "en": "Monitor remote systems using NSClient++ agent.",
-            "de": "Überwachen Sie entfernte Systeme mit dem NSClient++-Agenten.",
+            "en": "This adapter monitors remote systems using NSClient++ agent.",
+            "de": "Dieser Adapter ermöglicht die Überwachung entfernter Systeme mittels NSClient++-Agenten.",
             "ru": "Контролируйте удаленные системы с помощью агента NSClient++.",
             "pt": "Monitore sistemas remotos usando o agente NSClient++.",
             "nl": "Bewaak externe systemen met behulp van NSClient++ agent.",
@@ -56,6 +56,7 @@
         "extIcon": "https://raw.githubusercontent.com/iobroker-community-sadapters/ioBroker.nsclient/master/admin/nsclient.png",
         "readme": "https://github.com/iobroker-community-sadapters/ioBroker.nsclient/blob/master/README.md",
         "loglevel": "info",
+        "messagebox": true,
         "mode": "daemon",
         "type": "infrastructure",
         "compact": true,

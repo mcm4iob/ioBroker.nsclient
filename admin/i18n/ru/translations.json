@@ -1,5 +1,16 @@
 {
-    "nsclient adapter settings": "Настройки адаптера для nsclient",
-    "option1": "Опция 1",
-    "option2": "вариант 2"
+    "lblDevs": "Устройства",
+    "lblDevsInfo": "Вы должны указать хотя бы группу OID, чтобы добавить некоторые устройства",
+    "lblDevsDevices": "Устройства",
+    "lblDevAct": "активный",
+    "lblDevName": "Имя",
+    "lblDevIpAddr": "Айпи адрес",
+    "lblDevTimeout": "время ожидания (сек)",
+    "lblDevPollIntvl": "опрос (сек)",
+    "lblDevUse": "Пользователь",
+    "lblDevPwd": "Пароль",
+    "lblDevChkCpu": "проверить процессор",
+    "lblDevChkMem": "проверить память",
+    "lblDevChkDrives": "проверить диски",
+    "lblDevUser": "Имя пользователя"
 }
