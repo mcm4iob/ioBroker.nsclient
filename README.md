@@ -21,8 +21,7 @@ _ THIS ADAPTER IS UNDER DEVELOPMENT _
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.0 (2022-09-21)
 * (mcm1957) initial release
 
 ## License

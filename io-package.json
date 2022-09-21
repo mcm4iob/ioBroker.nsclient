@@ -1,105 +1,116 @@
 {
-    "common": {
-        "name": "nsclient",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "title": "NSClient++ Monitor",
-        "titleLang": {
-            "en": "NSClient++ Monitor",
-            "de": "NSClient++-Monitor",
-            "ru": "Монитор NSClient++",
-            "pt": "Monitor NSClient++",
-            "nl": "NSClient++-monitor",
-            "fr": "Moniteur NSClient++",
-            "it": "Monitor NSClient++",
-            "es": "Monitor de NSClient++",
-            "pl": "Monitor NSClient++",
-            "zh-cn": "NSClient++ 监视器"
-        },
-        "desc": {
-            "en": "This adapter monitors remote systems using NSClient++ agent.",
-            "de": "Dieser Adapter ermöglicht die Überwachung entfernter Systeme mittels NSClient++-Agenten.",
-            "ru": "Контролируйте удаленные системы с помощью агента NSClient++.",
-            "pt": "Monitore sistemas remotos usando o agente NSClient++.",
-            "nl": "Bewaak externe systemen met behulp van NSClient++ agent.",
-            "fr": "Surveillez les systèmes distants à l'aide de l'agent NSClient++.",
-            "it": "Monitora i sistemi remoti utilizzando l'agente NSClient++.",
-            "es": "Supervise los sistemas remotos mediante el agente NSClient++.",
-            "pl": "Monitoruj zdalne systemy za pomocą agenta NSClient++.",
-            "zh-cn": "使用 NSClient++ 代理监控远程系统。"
-        },
-        "authors": [
-            "mcm1957 <mcm57@gmx.at>"
-        ],
-        "keywords": [
-            "monitoring",
-            "nsclient++"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "nsclient.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/iobroker-community-sadapters/ioBroker.nsclient/master/admin/nsclient.png",
-        "readme": "https://github.com/iobroker-community-sadapters/ioBroker.nsclient/blob/master/README.md",
-        "loglevel": "info",
-        "messagebox": true,
-        "mode": "daemon",
-        "type": "infrastructure",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "nsclient",
+    "version": "0.0.2-alpha.0",
+    "news": {
+      "0.0.2-alpha.0": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "начальный выпуск",
+        "pt": "lançamento inicial",
+        "nl": "niet",
+        "fr": "initial release",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "pierwsze wydanie",
+        "zh-cn": "初步释放"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": { 
+    "title": "NSClient++ Monitor",
+    "titleLang": {
+      "en": "NSClient++ Monitor",
+      "de": "NSClient++-Monitor",
+      "ru": "Монитор NSClient++",
+      "pt": "Monitor NSClient++",
+      "nl": "NSClient++-monitor",
+      "fr": "Moniteur NSClient++",
+      "it": "Monitor NSClient++",
+      "es": "Monitor de NSClient++",
+      "pl": "Monitor NSClient++",
+      "zh-cn": "NSClient++ 监视器"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "This adapter monitors remote systems using NSClient++ agent.",
+      "de": "Dieser Adapter ermöglicht die Überwachung entfernter Systeme mittels NSClient++-Agenten.",
+      "ru": "Контролируйте удаленные системы с помощью агента NSClient++.",
+      "pt": "Monitore sistemas remotos usando o agente NSClient++.",
+      "nl": "Bewaak externe systemen met behulp van NSClient++ agent.",
+      "fr": "Surveillez les systèmes distants à l'aide de l'agent NSClient++.",
+      "it": "Monitora i sistemi remoti utilizzando l'agente NSClient++.",
+      "es": "Supervise los sistemas remotos mediante el agente NSClient++.",
+      "pl": "Monitoruj zdalne systemy za pomocą agenta NSClient++.",
+      "zh-cn": "使用 NSClient++ 代理监控远程系统。"
+    },
+    "authors": [
+      "mcm1957 <mcm57@gmx.at>"
+    ],
+    "keywords": [
+      "monitoring",
+      "nsclient++"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "nsclient.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-sadapters/ioBroker.nsclient/master/admin/nsclient.png",
+    "readme": "https://github.com/iobroker-community-sadapters/ioBroker.nsclient/blob/master/README.md",
+    "loglevel": "info",
+    "messagebox": true,
+    "mode": "daemon",
+    "type": "infrastructure",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
     ]
+  },
+  "native": {},
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
