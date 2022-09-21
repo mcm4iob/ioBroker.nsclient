@@ -5,12 +5,11 @@
     "lblDevAct": "активный",
     "lblDevName": "Имя",
     "lblDevIpAddr": "Айпи адрес",
-    "lblDevTimeout": "время ожидания (сек)",
-    "lblDevPollIntvl": "опрос (сек)",
-    "lblDevUse": "Пользователь",
+    "lblDevUser": "Имя пользователя",
     "lblDevPwd": "Пароль",
+    "lblDevPollIntvl": "опрос (сек)",
+    "lblDevTimeout": "время ожидания (сек)",
     "lblDevChkCpu": "проверить процессор",
     "lblDevChkMem": "проверить память",
-    "lblDevChkDrives": "проверить диски",
-    "lblDevUser": "Имя пользователя"
+    "lblDevChkDrives": "проверить диски"
 }

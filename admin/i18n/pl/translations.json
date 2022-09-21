@@ -5,12 +5,11 @@
     "lblDevAct": "aktywny",
     "lblDevName": "Nazwa",
     "lblDevIpAddr": "Adres IP",
-    "lblDevTimeout": "limit czasu (s)",
-    "lblDevPollIntvl": "odpytywanie (s)",
-    "lblDevUse": "Użytkownik",
+    "lblDevUser": "Nazwa użytkownika",
     "lblDevPwd": "Hasło",
+    "lblDevPollIntvl": "odpytywanie (s)",
+    "lblDevTimeout": "limit czasu (s)",
     "lblDevChkCpu": "sprawdź procesor",
     "lblDevChkMem": "sprawdź pamięć",
-    "lblDevChkDrives": "sprawdź dyski",
-    "lblDevUser": "Nazwa użytkownika"
+    "lblDevChkDrives": "sprawdź dyski"
 }

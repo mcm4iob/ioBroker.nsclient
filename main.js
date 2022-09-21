@@ -19,29 +19,24 @@
  *
  *  CTX         object for one signle device
  *    containing
- *      name       string   name of the device
- *      ipAddr     string   ip address (without port number)
- *      ipPort     number   ip port number
- *      id         string   id of device, dereived from ip address or from name
- *      isIPv6     bool     true if IPv6 to be used
- *      timeout    number   snmp connect timeout (ms)
- *      retryIntvl number   snmp retry intervall (ms)
- *      pollIntvl  number   snmp poll intervall (ms)
- *      snmpVers   number   snmp version
- *      community  string   snmp comunity (v1, v2c)
- *      chunks     array    array of oid data consiting of
- *      {
- *          OIDs       array of objects
- *                          oid config object (contains i.e. flags)
- *          oids       array of strings
- *                          oids to be read
- *          ids        array of strings
- *                          ids for oids to be read
- *      }
- *      pollTimer  object   timer object for poll timer
- *      retryTimer object   timer object for retry timer
- *      session    object   snmp session object
- *      inactive   bool     flag indicating conection status of device
+ *      name        string  name of the device
+ *      id          string  id of device, dereived from name
+ *      ipAddr      string  ip address (without port number)
+ *      ipPort      number  ip port number
+ *      user        string  username to connect to client
+ *      pwd         string  password to connect to client
+ *      timeout     number  snmp connect timeout (ms)
+ *      pollIntvl   number  snmp poll intervall (ms)
+ *      chkCpu      bool    true if standard cpu checks to be performed
+ *      chkMem      bool    true if standard memory checks to be performed
+ *      chkDrives   bool    true if standard drive checks to be performed
+ *
+ *      url         string  url to connect to client
+ *      busy        bool    flag to avoid too fast polling
+ *      initialized bool    flag indicating initialization status of device
+ *      offline     bool    flag indicating connection status of device
+ *      pollTimer   object  timer object for poll timer
+ *      queries     array   array of query names stored as strings
  */
 
 'use strict';
@@ -64,6 +59,73 @@ const QUERIES = {
         parser: parsePerf
     },
 };
+
+const HTTP_CODES = {
+    '100': 'Continue',
+    '101': 'Switching Protocols',
+    '102': 'Processing',
+    '103': 'Early Hints',
+    '200': 'OK',
+    '201': 'Created',
+    '202': 'Accepted',
+    '203': 'Non-Authoritative Information',
+    '204': 'No Content',
+    '205': 'Reset Content',
+    '206': 'Partial Content',
+    '207': 'Multi-Status',
+    '208': 'Already Reported',
+    '226': 'IM Used',
+    '300': 'Multiple Choices',
+    '301': 'Moved Permanently',
+    '302': 'Found',
+    '303': 'See Other',
+    '304': 'Not Modified',
+    '305': 'Use Proxy',
+    '307': 'Temporary Redirect',
+    '308': 'Permanent Redirect',
+    '400': 'Bad Request',
+    '401': 'Unauthorized',
+    '402': 'Payment Required',
+    '403': 'Forbidden',
+    '404': 'Not Found',
+    '405': 'Method Not Allowed',
+    '406': 'Not Acceptable',
+    '407': 'Proxy Authentication Required',
+    '408': 'Request Timeout',
+    '409': 'Conflict',
+    '410': 'Gone',
+    '411': 'Length Required',
+    '412': 'Precondition Failed',
+    '413': 'Payload Too Large',
+    '414': 'URI Too Long',
+    '415': 'Unsupported Media Type',
+    '416': 'Range Not Satisfiable',
+    '417': 'Expectation Failed',
+    '418': "I'm a Teapot",
+    '421': 'Misdirected Request',
+    '422': 'Unprocessable Entity',
+    '423': 'Locked',
+    '424': 'Failed Dependency',
+    '425': 'Too Early',
+    '426': 'Upgrade Required',
+    '428': 'Precondition Required',
+    '429': 'Too Many Requests',
+    '431': 'Request Header Fields Too Large',
+    '451': 'Unavailable For Legal Reasons',
+    '500': 'Internal Server Error',
+    '501': 'Not Implemented',
+    '502': 'Bad Gateway',
+    '503': 'Service Unavailable',
+    '504': 'Gateway Timeout',
+    '505': 'HTTP Version Not Supported',
+    '506': 'Variant Also Negotiates',
+    '507': 'Insufficient Storage',
+    '508': 'Loop Detected',
+    '509': 'Bandwidth Limit Exceeded',
+    '510': 'Not Extended',
+    '511': 'Network Authentication Required'
+};
+
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
@@ -94,6 +156,41 @@ function name2id(pName) {
     return (pName || '').replace(adapter.FORBIDDEN_CHARS, '_').replace(/[%]/g, 'pct').replace(/[-\s]/g, '_');
 }
 
+/**
+ * handleOffline - process online status of device switches to offline
+ *
+ * @param   {object}    pCTX    device context
+ * @param   {string}    pMsg    error message to log
+ * @return  nothing
+ *
+ */
+function handleOffline (pCTX, pMsg) {
+    adapter.log.debug('handleOffline - ' + pCTX.name  );
+
+    if ( ! pCTX.offline ){
+        if (pMsg && pMsg !== '') { adapter.log.warn('[' + pCTX.name + '] ' + pMsg  ); }
+        adapter.log.info('[' + pCTX.name + '] offline');
+    }
+    pCTX.offline = true;
+}
+
+/**
+ * handleOnline - process online status of device switches to online
+ *
+ * @param   {object}    pCTX    device context
+ * @param   {string}    pMsg    info message to log
+ * @return  nothing
+ *
+ */
+function handleOnline (pCTX, pMsg) {
+    adapter.log.debug('handleOnline - ' + pCTX.name  );
+
+    if ( pCTX.offline ){
+        if (pMsg && pMsg !== '') { adapter.log.info('[' + pCTX.name + '] ' + pMsg  ); }
+        adapter.log.info('[' + pCTX.name + '] online');
+    }
+    pCTX.offline = false;
+}
 
 // #################### state functions ####################
 /**
@@ -123,56 +220,28 @@ async function initObject(pObj) {
  *		waits for action to complete using await
  *
  * @param   {string}    pId     state id
- * @param   {string}    pName   state name
- * @param   {string}    pRole   role of state
- * @param   {string}    pType   type of state
  * @param   {any}       pValue  new value the of the state
  * @param   {number}    pQual   quality code of the state
+ * @param   {object}    pCommon object containing common part of state object
  * @return  nothing
  *
  */
-const MODE_RD = 0;
-const MODE_WR = 1;
-const MODE_RW = 2;
-async function updateState(pId, pName, pType, pRole, pMode, pValue, pQual) {
+async function updateState( pId, pValue, pQual, pCommon ) {
     adapter.log.debug('updateState - ' + pId);
 
-    if ( ! STATEs[pId] ) {
+    if ( ! STATEs[pId] || STATEs[pId].type !== pCommon.type) {
         await initObject({
             _id: pId,
             type: 'state',
-            common: {
-                name: pName,
-                write: pMode === MODE_WR || pMode === MODE_RW,
-                read: pMode === MODE_RD || pMode === MODE_RW,
-                type: pType,
-                role: pRole
-            },
-            native: {
-            }
+            common: pCommon,
+            native: { }
         });
-        STATEs[pId] = {};
-        STATEs[pId].type = pType;
-    }
-
-    if ( STATEs[pId].type !== pType ){
-        await initObject({
-            _id: pId,
-            type: 'state',
-            common: {
-                name: pName,
-                write: pMode === MODE_WR || pMode === MODE_RW,
-                read: pMode === MODE_RD || pMode === MODE_RW,
-                type: pType,
-                role: pRole
-            },
-            native: {
-            }
-        });
-        STATEs[pId].type = pType;
+        if ( ! STATEs[pId] ) { STATEs[pId] = {}; }
+        STATEs[pId].type = pCommon.type;
     }
 
     await adapter.setStateAsync(pId, {val: pValue, ack: true, q:pQual} );
+    adapter.log.debug('state ' + pId + ' updated (value ' + pValue +')');
 }
 
 /**
@@ -245,8 +314,13 @@ async function initBaseObjects ( pCTX ) {
     //    if ( pCTX.chkMem )    { await initFolderObject(pCTX.id+'.mem', ''); }
 
     // <name>.online state
-    await updateState(pCTX.id + '.online', pCTX.name + ' online',
-        'boolean', 'indicator.reachable', MODE_RD, false, 0);
+    await updateState(pCTX.id + '.online', false, 0, {
+        name: pCTX.name + ' online',
+        type: 'boolean',
+        role: 'indicator.reachable',
+        read: true,
+        write: false
+    });
 }
 
 /**
@@ -268,33 +342,46 @@ async function initAllBaseObjects() {
  * parseInfo - parse the json returned by command 'info'
  *
  *      NOTE: all parseXxxx fucntions must use identical parameters
- * 
+ *
  * @param   {object}    pCTX    device context
  * @param   {object}    pJdata  json object as returnd by client
  * @return  nothing
  *
  */
- async function parseInfo(pCTX, pJdata)
+async function parseInfo(pCTX, pJdata)
 {
     adapter.log.debug('parseInfo - ' + pCTX.id );
 
     // note info folder should already exist
-    await updateState(pCTX.id+'.info.name',    'client name',    'string', 'info.name',    MODE_RD, pJdata.name,    0);
-    await updateState(pCTX.id+'.info.version', 'client version', 'string', 'info.version', MODE_RD, pJdata.version, 0);
+    await updateState(pCTX.id+'.info.name', pJdata.name, 0, {
+        name: 'client name',
+        type: 'string',
+        role: 'info.name',
+        read: true,
+        write: false
+    });
+
+    await updateState(pCTX.id+'.info.version', pJdata.version, 0, {
+        name: 'client version',
+        type: 'string',
+        role: 'info.version',
+        read: true,
+        write: false
+    });
 
 }
 
 /**
- * parseInfo - parse the json returned by any command with perf data (check_cpu, check_memory, check_drives)
+ * parsePerf - parse the json returned by any command with perf data (check_cpu, check_memory, ...)
  *
  *      NOTE: all parseXxxx fucntions must use identical parameters
- * 
+ *
  * @param   {object}    pCTX    device context
  * @param   {object}    pJdata  json object as returnd by client
  * @return  nothing
  *
  */
- async function parsePerf( pCTX, pJdata)
+async function parsePerf( pCTX, pJdata)
 {
     adapter.log.debug('parsePerf - ' + pCTX.id );
 
@@ -302,10 +389,23 @@ async function initAllBaseObjects() {
 
     const baseId = name2id( pCTX.id + '.' + command );
     await initFolderObject (baseId, '');
-    await updateState(baseId + '.result', 'result', 'number', 'value.severity', MODE_RD, pJdata.result, 0);
+    await updateState(baseId + '.result', pJdata.result, 0, {
+        name: 'result',
+        type: 'number',
+        role: 'value.severity',
+        read: true,
+        write: false,
+        states: {0: 'ok', 1: 'warning', 2: 'error', 3: 'delayed'}
+    });
 
     // TODO: for each line ???
-    await updateState(baseId + '.message', 'message', 'string', 'text', MODE_RD, pJdata.lines[0].message, 0);
+    await updateState(baseId + '.message', pJdata.lines[0].message, 0, {
+        name: 'message',
+        type: 'string',
+        role: 'text',
+        read: true,
+        write: false
+    });
 
     await initFolderObject (baseId + '.perf', '');
     for(const perfKey in pJdata.lines[0].perf){
@@ -315,13 +415,27 @@ async function initAllBaseObjects() {
             const stateId = name2id (baseId + '.perf' + '.' + perfKey + '.' + state);
             const stateVal = pJdata.lines[0].perf[perfKey][state];
             const isNum = /^\d+(\.\d+)?$/.test(stateVal);
-            await updateState(stateId, 'state', isNum?'number':'string', 'value', MODE_RD, stateVal, 0);
+            await updateState(stateId, stateVal, 0, {
+                name: state,
+                type: isNum?'number':'string',
+                role: 'value',
+                read: true,
+                write: false
+            });
         }
     }
 }
 
 // #################### network functions ####################
-async function httpsGetAsync( pUrl ){
+/**
+ * httpsGetAsync - async call to https
+ *
+ * @param   {string}    pUrl    url to query
+ * @param   {number}    pTmo    timeout (ms)
+ * @return  {Promise}   return info structure
+ *
+ */
+async function httpsGetAsync( pUrl, pTmo ){
     adapter.log.debug('httpsGetAsync - ' + pUrl );
     const ret= {};
     ret.httpCode=0;
@@ -331,7 +445,8 @@ async function httpsGetAsync( pUrl ){
 
     return new Promise((resolve,_reject)=>{
         const options= {
-            rejectUnauthorized: false
+            rejectUnauthorized: false,
+            timeout: pTmo
         };
         https.get( pUrl, options, (res) => {
             console.log('statusCode:', res.statusCode);
@@ -348,7 +463,6 @@ async function httpsGetAsync( pUrl ){
             // @ts-ignore
             if ( e && e.code !== 'HPE_INVALID_CONSTANT' )
             {
-                console.error(e);
                 // @ts-ignore
                 ret.errCode = e.code;
                 ret.errText = e.toString();
@@ -358,31 +472,53 @@ async function httpsGetAsync( pUrl ){
     });
 }
 
-async function executeQuery ( pUrl, pQueryName) {
+/**
+ * httpsGetAsync - async call to https
+ *
+ * @param   {object}    pCTX        device context
+ * @param   {string}    pUrl    url to query
+ * @param   {string}    pQuery  name of query
+ * @return  query result (or empty string)
+ *
+ */
+async function executeQuery ( pCTX, pUrl, pQuery) {
 
-    adapter.log.debug('executeQuery - ' + pQueryName );
+    adapter.log.debug('executeQuery - ' + pQuery );
 
-    const url = pUrl + QUERIES [ pQueryName ].query;
-    const ret = await httpsGetAsync( url );
+    const url = pUrl + QUERIES [ pQuery ].query;
+    const ret = await httpsGetAsync( url, pCTX.timeout );
     if ( ret.errCode ) {
-        console.log ('Error: [' + ret.errCode + '] ' + ret.errText );
+        adapter.log.debug ('[' + pCTX.name + '] ' + ret.errCode + ' - ' + ret.errText );
+        handleOffline(pCTX, ret.errCode + ' - ' + ret.errText);
+        return '';
     }
     else if (ret.httpCode !== 200) {
-        console.log ('Error: http Code ' + ret.httpCode );
+        adapter.log.debug ('[' + pCTX.name + '] HTTP error [' + ret.httpCode + '] ' + HTTP_CODES[ret.httpCode]);
+        handleOffline(pCTX, 'HTTP error [' + ret.httpCode + '] ' + HTTP_CODES[ret.httpCode]);
+        return '';
     } else {
-        console.log (ret.data.toString());
+        adapter.log.debug ('[' + pCTX.name + '] data retrieved "' + ret.data.toString() + '"');
+        handleOnline(pCTX, '');
         return ret.data;
     }
 }
 
 
 // #################### scanning functions ####################
+/**
+ * processQuery - process a query
+ *
+ * @param   {object}    pCTX    device context
+ * @param   {string}    pQuery  name of query
+ * @return  query result as json object
+ *
+ */
 async function processQuery ( pCTX, pQuery ){
     const name = pCTX.name;
     let jdata;
     adapter.log.debug('[' + name + '] processQuery starting for index ' + pQuery);
 
-    const data = await executeQuery( pCTX.url, pQuery );
+    const data = await executeQuery( pCTX, pCTX.url, pQuery );
     if ( data && data !== '') {
         jdata = JSON.parse( data );
     }
@@ -393,7 +529,7 @@ async function processQuery ( pCTX, pQuery ){
  * scanDevice - scan a single device
  *
  * @param   pCTX    context of a single device
- * @return
+ * @return  nothing
  *
  */
 async function scanDevice ( pCTX ){
@@ -401,34 +537,28 @@ async function scanDevice ( pCTX ){
     adapter.log.debug('[' + name + '] scanDevice starting');
 
     if (pCTX.busy){
-        adapter.warn('[' + name + '] device is still busy - scan interval should be reduced').
-            return;
+        adapter.log.warn('[' + name + '] device is still busy - scan interval should be increased');
+        return;
     }
     pCTX.busy = true;
 
     if ( ! pCTX.initialized )
     {
         const jdata = await processQuery( pCTX, 'info' );
-        QUERIES['info'].parser( pCTX, jdata );
+        if ( jdata ) {
+            QUERIES['info'].parser( pCTX, jdata );
+            adapter.log.info('[' + name + '] device connected, client ' + jdata.name + ' / ' + jdata.version);
+            pCTX.initializated = true;
+        }
     }
 
-    //TODO: 
-    // set initialized
-    // handle offline incl. warning
-    // handle error returned by query
-    
-    let jdata;
-    jdata = await processQuery( pCTX, 'check_memory' );
-    QUERIES['check_memory'].parser( pCTX, jdata );
-
-    jdata = await processQuery( pCTX, 'check_cpu' );
-    QUERIES['check_cpu'].parser( pCTX, jdata );
-
-    //    for (let ii = 0; ii < pCTX.queries.length; ii++) {
-    //        adapter.log.debug('[' + id + '] processing query index ' + ii );
-    //        await processQuery( pCTX, ii );
-    //        adapter.log.debug('[' + id + '] processing query index ' + ii + ' completed' );
-    //    }
+    for (let ii = 0; ii < pCTX.queries.length; ii++) {
+        const query = pCTX.queries[ii];
+        adapter.log.debug('[' + name + '] processing query [' + ii + '] ' + query );
+        const jdata = await processQuery( pCTX, query );
+        if ( jdata) { QUERIES[query].parser( pCTX, jdata ); }
+        adapter.log.debug('[' + name + '] processing query index [' + ii + '] completed' );
+    }
 
     pCTX.busy = false;
     adapter.log.debug('[' + name + '] scanDevice completed');
@@ -457,16 +587,6 @@ function startReaderThreads() {
  *
  * @return  nothing
  *
- *	CTX		object containing data for one device
- *			it has the following attributes
- *		ip			string 	ip address of target device
- *		ipStr		string	ip address of target device with invalid chars removed
- *		OIDs		array of OID objects
- *		oids		array of oid strings (used for snmp call)
- *		ids			array of id strings (index syncet o oids array)
- * 		authId 	    string 	snmp community (snmp V1, V2 only)
- *		initialized	boolean	true if connection is initialized
- *		inactive	boolean	true if connection to device is active
  */
 function setupContices() {
     adapter.log.debug('setupContices - initializing contices');
@@ -479,7 +599,7 @@ function setupContices() {
         }
 
         adapter.log.debug('adding device "' + dev.devIpAddr + '" (' + dev.devName + ')' );
-        adapter.log.debug('timing parameter: polling ' + dev.devPollIntvl + 's');
+        adapter.log.debug('timing parameter: timeout ' + dev.devTimeout + 's , polling ' + dev.devPollIntvl + 's');
 
         // TODO: ipV6 support
         const tmp = (dev.devIpAddr||'').trim ().split(':');
@@ -493,6 +613,7 @@ function setupContices() {
         CTXs[jj].ipPort = ipPort;
         CTXs[jj].user = (dev.devUser||'').trim();
         CTXs[jj].pwd = (dev.devPwd||'').trim();
+        CTXs[jj].timeout = (dev.devTimeout||1) * 1000;       //s -> ms must be less than 0x7fffffff
         CTXs[jj].pollIntvl = (dev.devPollIntvl||1) * 1000;   //s -> ms must be less than 0x7fffffff
 
         CTXs[jj].chkCpu = (dev.devChkCpu || false );
@@ -503,12 +624,14 @@ function setupContices() {
 
         CTXs[jj].busy = false;
         CTXs[jj].initialized = false;
-        CTXs[jj].connected = false;
+        CTXs[jj].offline = false;
 
         CTXs[jj].queries = [];
+        if ( CTXs[jj].chkCpu )    { CTXs[jj].queries.push('check_cpu'); }
+        if ( CTXs[jj].chkDrives ) { CTXs[jj].queries.push('check_drivesize'); }
+        if ( CTXs[jj].chkMem )    { CTXs[jj].queries.push('check_memory'); }
 
         CTXs[jj].pollTimer = null;  // poll intervall timer
-        CTXs[jj].inactive = true;   // connection status of device
 
         jj++;
     }
@@ -525,7 +648,7 @@ function validateConfig() {
 
     adapter.log.debug('validateConfig - verifying oid-sets');
 
-    // ensure that at least empty config exists
+    // ensure that at least an empty config exists
     adapter.config.devs = adapter.config.devs || [];
 
     adapter.log.debug('validateConfig - verifying devices');
@@ -535,6 +658,7 @@ function validateConfig() {
         ok = false;
     }
 
+    const chkDevNames = {};
     for (let ii = 0; ii < adapter.config.devs.length; ii++) {
         const dev = adapter.config.devs[ii];
 
@@ -542,6 +666,12 @@ function validateConfig() {
 
         dev.devName = (dev.devName||'').trim();
         dev.devIpAddr = (dev.devIpAddr||'').trim();
+
+        if ( chkDevNames[dev.devName] ) {
+            adapter.log.error('devicenames must be unique, "' + dev.devName + '"use more than once, please correct configuration.');
+            ok = false;
+        }
+        chkDevNames[dev.devName] = 'x';
 
         // IP addr might be an IPv4 address, and IPv6 address or a dsn name
         if (/^\d+\.\d+\.\d+\.\d+(:\d+)?$/.test(dev.devIpAddr)) {
@@ -553,42 +683,42 @@ function validateConfig() {
             ok = false;
         }
 
-        //        if (!/^\d+$/.test(dev.devTimeout)) {
-        //            adapter.log.error('device "' + dev.devName + '" - timeout (' + dev.devTimeout + ') must be numeric, please correct configuration.');
-        //            ok = false;
-        //        }
-        //        dev.devTimeout = parseInt(dev.devTimeout, 10) || 5;
-        //        if (dev.devTimeout > 600) { // must be less than 0x7fffffff / 1000
-        //            adapter.log.warn('device "' + dev.devName + '" - device timeout (' + dev.devTimeout + ') must be less than 600 seconds, please correct configuration.');
-        //            dev.devTimeout = 600;
-        //            adapter.log.warn('device "' + dev.devName + '" - device timeout set to 600 seconds.');
-        //        }
-        //        if (dev.devTimeout < 1) {
-        //            adapter.log.warn('device "' + dev.devName + '" - device timeout (' + dev.devTimeout + ') must be at least 1 second, please correct configuration.');
-        //            dev.devTimeout = 1;
-        //            adapter.log.warn('device "' + dev.devName + '" - device timeout set to 1 second.');
-        //        }
+        if (!/^\d+$/.test(dev.devTimeout)) {
+            adapter.log.error('device "' + dev.devName + '" - timeout (' + dev.devTimeout + ') must be numeric, please correct configuration.');
+            ok = false;
+        }
+        dev.devTimeout = parseInt(dev.devTimeout, 10) || 5;
+        if (dev.devTimeout > 600) { // must be less than 0x7fffffff / 1000
+            adapter.log.warn('device "' + dev.devName + '" - device timeout (' + dev.devTimeout + ') must be less than 600 seconds, please correct configuration.');
+            dev.devTimeout = 600;
+            adapter.log.warn('device "' + dev.devName + '" - device timeout set to 600 seconds.');
+        }
+        if (dev.devTimeout < 1) {
+            adapter.log.warn('device "' + dev.devName + '" - device timeout (' + dev.devTimeout + ') must be at least 1 second, please correct configuration.');
+            dev.devTimeout = 1;
+            adapter.log.warn('device "' + dev.devName + '" - device timeout set to 1 second.');
+        }
 
-        //        if (!/^\d+$/.test(dev.devPollIntvl)) {
-        //            adapter.log.error('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be numeric, please correct configuration.');
-        //            ok = false;
-        //        }
-        //        dev.devPollIntvl = parseInt(dev.devPollIntvl, 10) || 30;
-        //        if (dev.devPollIntvl > 3600) { // must be less than 0x7fffffff / 1000
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be less than 3600 seconds, please correct configuration.');
-        //            dev.devPollIntvl = 3600;
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to 3600 seconds.');
-        //        }
-        //        if (dev.devPollIntvl < 5) {
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be at least 5 seconds, please correct configuration.');
-        //            dev.devPollIntvl = 5;
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to 5 seconds.');
-        //        }
-        //        if (dev.devPollIntvl <= dev.devTimeout) {
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be larger than device timeout (' + dev.devTimeout + '), please correct configuration.');
-        //            dev.devPollIntvl = dev.devTimeout + 1;
-        //            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to ' + dev.devPollIntvl + ' seconds.');
-        //        }
+        if (!/^\d+$/.test(dev.devPollIntvl)) {
+            adapter.log.error('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be numeric, please correct configuration.');
+            ok = false;
+        }
+        dev.devPollIntvl = parseInt(dev.devPollIntvl, 10) || 30;
+        if (dev.devPollIntvl > 3600) { // must be less than 0x7fffffff / 1000
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be less than 3600 seconds, please correct configuration.');
+            dev.devPollIntvl = 3600;
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to 3600 seconds.');
+        }
+        if (dev.devPollIntvl < 5) {
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be at least 5 seconds, please correct configuration.');
+            dev.devPollIntvl = 5;
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to 5 seconds.');
+        }
+        if (dev.devPollIntvl <= dev.devTimeout) {
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall (' + dev.devPollIntvl + ') must be larger than device timeout (' + dev.devTimeout + '), please correct configuration.');
+            dev.devPollIntvl = dev.devTimeout + 1;
+            adapter.log.warn('device "' + dev.devName + '" - poll intervall set to ' + dev.devPollIntvl + ' seconds.');
+        }
     }
 
     if (!ok) {
@@ -666,19 +796,6 @@ async function onReady() {
         return;
     }
 
-    /*
-    https.get('https://admin:nagios57@localhost:8443/api/v1/info', {rejectUnauthorized: false}, (res) => {
-        console.log('statusCode:', res.statusCode);
-        //        console.log('headers:', res.headers);
-
-        res.on('data', (d) => {
-            process.stdout.write(d);
-        });
-
-    }).on('error', (e) => {
-        //        console.error(e);
-    });
-*/
     // read global config
 
     // setup worker thread contices
@@ -729,31 +846,22 @@ function onMessage (pObj) {
 function onUnload(callback) {
     adapter.log.debug('onUnload triggered');
 
-    //    for (let ii = 0; ii < CTXs.length; ii++) {
-    //        const CTX = CTXs[ii];
+    for (let ii = 0; ii < CTXs.length; ii++) {
+        const CTX = CTXs[ii];
 
-    //        // (re)set device online status
-    //        try {
-    //            adapter.setState(CTX.id + '.online', false, true);
-    //        } catch { };
+        // (re)set device online status
+        try {
+            adapter.setState(CTX.id + '.online', false, true);
+        } catch (e) { console.log(e); }
 
-    //        // close session if one exists
-    //        if (CTX.pollTimer) {
-    //            try {
-    //                clearInterval(CTX.pollTimer);
-    //            } catch { };
-    //            CTX.pollTimer = null;
-    //        };
-
-    //        if (CTX.session) {
-    //            try {
-    //                CTX.session.on('error', null); // avoid nesting callbacks
-    //                CTX.session.on('close', null); // avoid nesting callbacks
-    //                CTX.session.close();
-    //            } catch { }
-    //            CTX.session = null;
-    //        }
-    //    };
+        // close session if one exists
+        if (CTX.pollTimer) {
+            try {
+                clearInterval(CTX.pollTimer);
+            } catch (e) { console.log(e); }
+            CTX.pollTimer = null;
+        }
+    }
 
     //    if (g_connUpdateTimer) {
     //        try {
@@ -772,7 +880,7 @@ function onUnload(callback) {
 
 /* ***** here we start ***** */
 
-console.log('DEBUG  : snmp adapter initializing (' + process.argv + ') ...'); //logger not yet initialized
+console.log('DEBUG  : nsclient++ adapter initializing (' + process.argv + ') ...'); //logger not yet initialized
 
 // if (process.argv) {
 //     for (let a = 1; a < process.argv.length; a++) {

@@ -1,0 +1,137 @@
+{
+  name: "NSClient++",
+  version: "0.5.2.35 2018-01-28",
+  version_url: "https://10.17.2.108:8443/api/v1/info/version",
+}
+
+{
+  command: "check_cpu",
+  lines: [
+    {
+      message: "OK: CPU load is ok.",
+      perf: {
+        "total 1m": {
+          critical: 90,
+          maximum: 0,
+          minimum: 0,
+          unit: "%",
+          value: 11,
+          warning: 80,
+        },
+        "total 5m": {
+          critical: 90,
+          maximum: 0,
+          minimum: 0,
+          unit: "%",
+          value: 8,
+          warning: 80,
+        },
+        "total 5s": {
+          critical: 90,
+          maximum: 0,
+          minimum: 0,
+          unit: "%",
+          value: 11,
+          warning: 80,
+        },
+      },
+    },
+  ],
+  result: 0,
+}
+
+{
+  command: "check_memory",
+  lines: [
+    {
+      message: "OK: committed = 7.133GB, physical = 7.316GB",
+      perf: {
+        committed: {
+          critical: 32.95959548931569,
+          maximum: 36.62177276611328,
+          minimum: 0,
+          unit: "GB",
+          value: 7.133457183837891,
+          warning: 29.297418212518096,
+        },
+        "committed %": {
+          critical: 90,
+          maximum: 100,
+          minimum: 0,
+          unit: "%",
+          value: 19,
+          warning: 80,
+        },
+        physical: {
+          critical: 28.68459548894316,
+          maximum: 31.87177276611328,
+          minimum: 0,
+          unit: "GB",
+          value: 7.315822601318359,
+          warning: 25.49741821270436,
+        },
+        "physical %": {
+          critical: 90,
+          maximum: 100,
+          minimum: 0,
+          unit: "%",
+          value: 23,
+          warning: 80,
+        },
+      },
+    },
+  ],
+  result: 0,
+}
+
+{
+  command: "check_drivesize",
+  lines: [
+    {
+      message: "CRITICAL C:\\: 195.582GB/237.105GB used, E:\\: 2.515TB/2.729TB used",
+      perf: {
+        "C:\\ used": {
+          critical: 213.39473991375417,
+          maximum: 237.10526657104492,
+          minimum: 0,
+          unit: "GB",
+          value: 195.5815086364746,
+          warning: 189.6842132564634,
+        },
+        "C:\\ used %": {
+          critical: 90,
+          maximum: 100,
+          minimum: 0,
+          unit: "%",
+          value: 82,
+          warning: 80,
+        },
+        "D:\\ used": {
+          critical: 0,
+          maximum: 0,
+          minimum: 0,
+          unit: "B",
+          value: 0,
+          warning: 0,
+        },
+        "E:\\ used": {
+          critical: 2.4561198201026855,
+          maximum: 2.7290220223367214,
+          minimum: 0,
+          unit: "TB",
+          value: 2.5151264406740665,
+          warning: 2.1832176178686495,
+        },
+        "E:\\ used %": {
+          critical: 90,
+          maximum: 100,
+          minimum: 0,
+          unit: "%",
+          value: 92,
+          warning: 80,
+        },
+      },
+    },
+  ],
+  result: 2,
+}

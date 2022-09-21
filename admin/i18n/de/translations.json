@@ -5,11 +5,11 @@
     "lblDevAct": "aktiv",
     "lblDevName": "Name",
     "lblDevIpAddr": "IP Adresse",
-    "lblDevUse": "Benutzer",
+    "lblDevUser": "Nutzername",
     "lblDevPwd": "Passwort",
     "lblDevPollIntvl": "Abfrage (Sek.)",
+    "lblDevTimeout": "Zeitüberschreitung (Sek.)",
     "lblDevChkCpu": "CPU prüfen",
     "lblDevChkMem": "Speicher prüfen",
-    "lblDevChkDrives": "Laufwerke prüfen",
-    "lblDevUser": "Nutzername"
+    "lblDevChkDrives": "Laufwerke prüfen"
 }

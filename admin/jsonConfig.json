@@ -35,7 +35,7 @@
                         {
                             "type": "text",
                             "attr": "devName",
-                            "width": "30% ",
+                            "width": "20% ",
                             "title": "lblDevName",
                             "filter": false,
                             "sort": false,
@@ -47,7 +47,7 @@
                         {
                             "type": "text",
                             "attr": "devIpAddr",
-                            "width": "30% ",
+                            "width": "20% ",
                             "title": "lblDevIpAddr",
                             "filter": false,
                             "sort": false,
@@ -56,7 +56,7 @@
                         {
                             "type": "text",
                             "attr": "devUser",
-                            "width": "10% ",
+                            "width": "20% ",
                             "title": "lblDevUser",
                             "filter": false,
                             "sort": false,
@@ -65,7 +65,7 @@
                         {
                             "type": "password",
                             "attr": "devPwd",
-                            "width": "10% ",
+                            "width": "30% ",
                             "title": "lblDevPwd",
                             "visible": true,
                             "filter": false,
@@ -82,6 +82,17 @@
                             "min": 5,
                             "max": 3600,
                             "default": "30"
+                        },
+                        {
+                            "type": "number",
+                            "attr": "devTimeout",
+                            "width": "5% ",
+                            "title": "lblDevTimeout",
+                            "filter": false,
+                            "sort": false,
+                            "min": 1,
+                            "max": 600,
+                            "default": "5"
                         },
                         {
                             "type": "checkbox",
@@ -109,15 +120,6 @@
                             "filter": false,
                             "sort": false,
                             "default": true
-                        },
-                        {
-                            "type": "sendTo",
-                            "attr": "devTest",
-                            "width": "10% ",
-                            "title": "lblDevTest",
-                            "icon": "send",
-                            "command": "send",
-                            "jsonData":  {"subject1": "value1"}
                         }
                     ]
                 }

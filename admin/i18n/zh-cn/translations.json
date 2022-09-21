@@ -5,12 +5,11 @@
     "lblDevAct": "积极的",
     "lblDevName": "姓名",
     "lblDevIpAddr": "IP地址",
-    "lblDevTimeout": "超时（秒）",
-    "lblDevPollIntvl": "轮询（秒）",
-    "lblDevUse": "用户",
+    "lblDevUser": "用户名",
     "lblDevPwd": "密码",
+    "lblDevPollIntvl": "轮询（秒）",
+    "lblDevTimeout": "超时（秒）",
     "lblDevChkCpu": "检查CPU",
     "lblDevChkMem": "检查内存",
-    "lblDevChkDrives": "检查驱动器",
-    "lblDevUser": "用户名"
+    "lblDevChkDrives": "检查驱动器"
 }

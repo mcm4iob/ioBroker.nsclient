@@ -5,12 +5,11 @@
     "lblDevAct": "actif",
     "lblDevName": "Nom",
     "lblDevIpAddr": "Adresse IP",
-    "lblDevTimeout": "délai d'attente (sec)",
-    "lblDevPollIntvl": "interrogation (sec)",
-    "lblDevUse": "Utilisateur",
+    "lblDevUser": "Nom d'utilisateur",
     "lblDevPwd": "Mot de passe",
+    "lblDevPollIntvl": "interrogation (sec)",
+    "lblDevTimeout": "délai d'attente (sec)",
     "lblDevChkCpu": "vérifier le processeur",
     "lblDevChkMem": "vérifier la mémoire",
-    "lblDevChkDrives": "vérifier les lecteurs",
-    "lblDevUser": "Nom d'utilisateur"
+    "lblDevChkDrives": "vérifier les lecteurs"
 }

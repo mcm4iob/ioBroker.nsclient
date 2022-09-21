@@ -8,6 +8,7 @@
     "lblDevUser":       "Username",
     "lblDevPwd":        "Password",
     "lblDevPollIntvl":  "polling (sec)",
+    "lblDevTimeout":    "timeout (sec)",
     "lblDevChkCpu":     "check cpu",
     "lblDevChkMem":     "check memory",
     "lblDevChkDrives":  "check drives"     

@@ -5,12 +5,11 @@
     "lblDevAct": "actief",
     "lblDevName": "Naam",
     "lblDevIpAddr": "IP adres",
-    "lblDevTimeout": "time-out (sec)",
-    "lblDevPollIntvl": "polling (sec)",
-    "lblDevUse": "Gebruiker",
+    "lblDevUser": "gebruikersnaam",
     "lblDevPwd": "Wachtwoord",
+    "lblDevPollIntvl": "polling (sec)",
+    "lblDevTimeout": "time-out (sec)",
     "lblDevChkCpu": "controleer cpu",
     "lblDevChkMem": "geheugen controleren",
-    "lblDevChkDrives": "controleer schijven",
-    "lblDevUser": "gebruikersnaam"
+    "lblDevChkDrives": "controleer schijven"
 }
