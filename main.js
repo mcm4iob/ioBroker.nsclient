@@ -548,7 +548,7 @@ async function scanDevice ( pCTX ){
         if ( jdata ) {
             QUERIES['info'].parser( pCTX, jdata );
             adapter.log.info('[' + name + '] device connected, client ' + jdata.name + ' / ' + jdata.version);
-            pCTX.initializated = true;
+            pCTX.initialized = true;
         }
     }
 
@@ -667,6 +667,14 @@ function validateConfig() {
         dev.devName = (dev.devName||'').trim();
         dev.devIpAddr = (dev.devIpAddr||'').trim();
 
+        if (dev.devName.endsWith('.')) {
+            adapter.log.error('devicename "' + dev.devName + '"is invalid. Name must not end with ".". Please correct configuration.');
+            ok = false;
+        }
+        if (dev.devName.includes('..')) {
+            adapter.log.error('devicename "' + dev.devName + '"is invalid. Name must not include consecutive dots. Please correct configuration.');
+            ok = false;
+        }
         if ( chkDevNames[dev.devName] ) {
             adapter.log.error('devicenames must be unique, "' + dev.devName + '"use more than once, please correct configuration.');
             ok = false;
