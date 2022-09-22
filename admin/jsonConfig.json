@@ -6,14 +6,6 @@
             "type": "panel",
             "label": "lblDevs",
             "items": {                        
-                "_test": {
-                    "type": "sendTo",
-                    "width": "10% ",
-                    "label": "lblDevTest",
-                    "icon": "send",
-                    "command": "send",
-                    "jsonData":  {"subject1": "value1"}
-                },
                 "devs": {
                     "type": "table",
 					"newLine": true,
@@ -124,21 +116,6 @@
                     ]
                 }
             }
-        },
-
-        "options": {
-            "type": "panel",
-            "label": "lblOptions",
-            "items": {
-				"optUseName": 	{
-                    "type": "checkbox",
-                    "label": "lblOptUseIp",
-					"newLine": true,
-                    "default": false,
-                    "tooltip": "ttOptUseIp",
-                    "help": "hlpOptUseIp"
-                }
-            }
-		}        
+        }
 	}
 }
