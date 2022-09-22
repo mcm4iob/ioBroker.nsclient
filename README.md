@@ -45,8 +45,8 @@ This adapter supports an unlimited number of devices with configurable polling i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.0.2-alpha.0 (2022-09-21)
-* (mcm1957) initial release
+### **WORK IN PROGRESS**
+* (mcm1957) release for alpha testing
 
 ## License
 MIT License
