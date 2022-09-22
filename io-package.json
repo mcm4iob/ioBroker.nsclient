@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.0.2-alpha.3",
+    "version": "0.0.2-alpha.4",
     "news": {
+      "0.0.2-alpha.4": {
+        "en": "release for alpha testing",
+        "de": "release für alpha-tests",
+        "ru": "релиз для альфа-тестирования",
+        "pt": "versão para teste alfa",
+        "nl": "vrijlating voor alfa testen",
+        "fr": "release for alpha testing",
+        "it": "rilascio per test alfa",
+        "es": "liberación para pruebas de alfa",
+        "pl": "testowanie alfa",
+        "zh-cn": "释放一倍试验"
+      },
       "0.0.2-alpha.3": {
         "en": "release for alpha testing",
         "de": "release für alpha-tests",
