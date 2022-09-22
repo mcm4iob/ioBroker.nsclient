@@ -18,7 +18,7 @@ _ THIS ADAPTER IS UNDER DEVELOPMENT _
 
 ## General Requirements and Features
 
-This adapter requires an NsClient++ agent to be installed at the target system, This agent is available for Windows (tested with Windows 10 and Windows 11) and Linux. The NsClient++ software is describes and available [here](https://https://nsclient.org/) free of charge.
+This adapter requires an NsClient++ agent to be installed at the target system, This agent is available for Windows (tested with Windows 10 and Windows 11) and Linux. The NsClient++ software is describes and available [here](https://nsclient.org/) free of charge.
 
 This adapter allows automatic polling of client systems equipt with NsCleint++ agent and store the results at several states. So (for example) the following data is available within ioBroker:
 
@@ -34,6 +34,11 @@ This adapter supports an unlimited number of devices with configurable polling i
 
 - Currently only https connectsions are supported. 
 - user defined checks are not (yet) supported
+
+## Documentation
+
+[english documentation](https://github.com/iobroker-community-adapters/ioBroker.nsclient/tree/master/docs/en)
+[deutsche Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.nsclient/tree/master/docs/de)
 
 ## Changelog
 <!--
