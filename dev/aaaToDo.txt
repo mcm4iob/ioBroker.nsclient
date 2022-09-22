@@ -1,0 +1,6 @@
+Logo verkleinern (100x100px)
+README.md erstellen
+Doku erstellen
+info.online implementieren
+http implementieren (?)
+devicenamen mit punkt -> folder
