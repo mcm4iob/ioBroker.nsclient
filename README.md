@@ -16,6 +16,25 @@ This adapter monitors remote systems using NSClient++ agent.
 
 _ THIS ADAPTER IS UNDER DEVELOPMENT _
 
+## General Requirements and Features
+
+This adapter requires an NsClient++ agent to be installed at the target system, This agent is available for Windows (tested with Windows 10 and Windows 11) and Linux. The NsClient++ software is describes and available [here](https://https://nsclient.org/) free of charge.
+
+This adapter allows automatic polling of client systems equipt with NsCleint++ agent and store the results at several states. So (for example) the following data is available within ioBroker:
+
+- cpu load in percent for several time ranges
+- memory load for several time ranges
+- discspace with obsolute values and ar percentages
+
+Additionally every check returns a binary status and a textual status message.
+
+This adapter supports an unlimited number of devices with configurable polling interval.
+
+## Restrictions
+
+- Currently only https connectsions are supported. 
+- user defined checks are not (yet) supported
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):

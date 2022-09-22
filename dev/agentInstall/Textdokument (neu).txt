@@ -1,0 +1,14 @@
+download nsclient software
+https://nsclient.org/
+https://nsclient.org/download/
+NSCP-0.5.2.35-x64.msi
+
+select monitoreing tool - generic
+select installation type typical
+add ip addresses of hosts which should be allowed to connect
+set a secure password
+enable webbrowser and common scripts (the rest is not needed)
+allow the installation to continiue and enter an admin password if requested
+
+connect to nsclient web interface https://localhost:8443/
+enable modules ...
