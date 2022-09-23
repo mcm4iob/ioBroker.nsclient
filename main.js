@@ -448,7 +448,7 @@ async function httpsGetAsync( pUrl, pTmo ){
             rejectUnauthorized: false,
             timeout: pTmo
         };
-        https.get( pUrl, options, (res) => {
+        const req = https.get( pUrl, options, (res) => {
             console.log('statusCode:', res.statusCode);
             ret.httpCode = res.statusCode||0;
             // console.log('headers:', res.headers);
@@ -459,7 +459,12 @@ async function httpsGetAsync( pUrl, pTmo ){
                 ret.data=d;
                 resolve(ret);
             });
-        }).on('error', (e) => {
+        });
+        req.on('timeout', () => {
+            ret.httpCode=408; //
+            resolve(ret);
+        });
+        req.on('error', (e) => {
             // @ts-ignore
             if ( e && e.code !== 'HPE_INVALID_CONSTANT' )
             {
@@ -476,54 +481,36 @@ async function httpsGetAsync( pUrl, pTmo ){
  * httpsGetAsync - async call to https
  *
  * @param   {object}    pCTX        device context
- * @param   {string}    pUrl    url to query
  * @param   {string}    pQuery  name of query
- * @return  query result (or empty string)
+ * @return  object  data        query result (or empty string)
+ *                  jdata       parsed query result
+ *                  errCode     any error occured
+ *                  errText     any error text
+ *                  httpCode    any error occured
  *
  */
-async function executeQuery ( pCTX, pUrl, pQuery) {
-
+async function executeQuery ( pCTX, pQuery) {
     adapter.log.debug('executeQuery - ' + pQuery );
 
-    const url = pUrl + QUERIES [ pQuery ].query;
+    const url = pCTX.url + QUERIES [ pQuery ].query;
     const ret = await httpsGetAsync( url, pCTX.timeout );
     if ( ret.errCode ) {
         adapter.log.debug ('[' + pCTX.name + '] ' + ret.errCode + ' - ' + ret.errText );
         handleOffline(pCTX, ret.errCode + ' - ' + ret.errText);
-        return '';
     }
     else if (ret.httpCode !== 200) {
         adapter.log.debug ('[' + pCTX.name + '] HTTP error [' + ret.httpCode + '] ' + HTTP_CODES[ret.httpCode]);
         handleOffline(pCTX, 'HTTP error [' + ret.httpCode + '] ' + HTTP_CODES[ret.httpCode]);
-        return '';
     } else {
         adapter.log.debug ('[' + pCTX.name + '] data retrieved "' + ret.data.toString() + '"');
         handleOnline(pCTX, '');
-        return ret.data;
+        ret.jdata = JSON.parse( ret.data );
     }
+    return ret;
 }
 
 
 // #################### scanning functions ####################
-/**
- * processQuery - process a query
- *
- * @param   {object}    pCTX    device context
- * @param   {string}    pQuery  name of query
- * @return  query result as json object
- *
- */
-async function processQuery ( pCTX, pQuery ){
-    const name = pCTX.name;
-    let jdata;
-    adapter.log.debug('[' + name + '] processQuery starting for index ' + pQuery);
-
-    const data = await executeQuery( pCTX, pCTX.url, pQuery );
-    if ( data && data !== '') {
-        jdata = JSON.parse( data );
-    }
-    return jdata;
-}
 
 /**
  * scanDevice - scan a single device
@@ -532,6 +519,8 @@ async function processQuery ( pCTX, pQuery ){
  * @return  nothing
  *
  */
+//TODO: bei Timeout error muss loop abgebrochen werden
+//TODO: states invalidieren dazu hash anlegen der states einer query enthälts
 async function scanDevice ( pCTX ){
     const name = pCTX.name;
     adapter.log.debug('[' + name + '] scanDevice starting');
@@ -544,19 +533,23 @@ async function scanDevice ( pCTX ){
 
     if ( ! pCTX.initialized )
     {
-        const jdata = await processQuery( pCTX, 'info' );
-        if ( jdata ) {
-            QUERIES['info'].parser( pCTX, jdata );
-            adapter.log.info('[' + name + '] device connected, client ' + jdata.name + ' / ' + jdata.version);
+        const ret = await executeQuery( pCTX, 'info' );
+        if ( ret.jdata ) {
+            QUERIES['info'].parser( pCTX, ret.jdata );
+            adapter.log.info('[' + name + '] device connected, client ' + ret.jdata.name + ' / ' + ret.jdata.version);
             pCTX.initialized = true;
         }
     }
 
-    for (let ii = 0; ii < pCTX.queries.length; ii++) {
+    for (let ii = 0; pCTX.initialized && (ii < pCTX.queries.length); ii++) {
         const query = pCTX.queries[ii];
         adapter.log.debug('[' + name + '] processing query [' + ii + '] ' + query );
-        const jdata = await processQuery( pCTX, query );
-        if ( jdata) { QUERIES[query].parser( pCTX, jdata ); }
+        const ret = await executeQuery( pCTX, query );
+        if (! ret.jdata) {
+            adapter.log.debug('[' + name + '] processing query index [' + ii + '] aborted' );
+            break;
+        }
+        QUERIES[query].parser( pCTX, ret.jdata );
         adapter.log.debug('[' + name + '] processing query index [' + ii + '] completed' );
     }
 
@@ -646,12 +639,10 @@ function setupContices() {
 function validateConfig() {
     let ok = true;
 
-    adapter.log.debug('validateConfig - verifying oid-sets');
+    adapter.log.debug('validateConfig - verifying devices');
 
     // ensure that at least an empty config exists
     adapter.config.devs = adapter.config.devs || [];
-
-    adapter.log.debug('validateConfig - verifying devices');
 
     if (!adapter.config.devs.length) {
         adapter.log.error('no devices configured, please add configuration.');
@@ -820,6 +811,9 @@ async function onReady() {
     // start connection info updater
     //    adapter.log.debug('startconnection info updater');
     //    g_connUpdateTimer = setInterval(handleConnectionInfo, 15000)
+
+    // NOTE: info.connection should be handled better
+    await adapter.setStateAsync('info.connection', true, true);
 
     adapter.log.debug('startup completed');
 
