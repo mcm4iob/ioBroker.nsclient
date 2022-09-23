@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.0.2-alpha.5",
+    "version": "0.0.2-alpha.6",
     "news": {
+      "0.0.2-alpha.6": {
+        "en": "release for alpha testing",
+        "de": "release für alpha-tests",
+        "ru": "релиз для альфа-тестирования",
+        "pt": "versão para teste alfa",
+        "nl": "vrijlating voor alfa testen",
+        "fr": "release for alpha testing",
+        "it": "rilascio per test alfa",
+        "es": "liberación para pruebas de alfa",
+        "pl": "testowanie alfa",
+        "zh-cn": "释放一倍试验"
+      },
       "0.0.2-alpha.5": {
         "en": "release for alpha testing",
         "de": "release für alpha-tests",
@@ -74,18 +86,6 @@
         "es": "liberación inicial",
         "pl": "pierwsze wydanie",
         "zh-cn": "初步释放"
-      },
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "zh-cn": "首次出版"
       }
     },
     "title": "NSClient++ Monitor",
