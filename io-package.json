@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "initial release for testing",
+        "de": "erstauslösung für tests",
+        "ru": "начальный выпуск для тестирования",
+        "pt": "lançamento inicial para testes",
+        "nl": "eerste vrijlating voor testen",
+        "fr": "libération initiale pour les essais",
+        "it": "rilascio iniziale per test",
+        "es": "liberación inicial para pruebas",
+        "pl": "wstępna wersja testowania",
+        "zh-cn": "试验的初步释放"
+      },
       "0.1.0": {
         "en": "initial release for testing",
         "de": "erstauslösung für tests",
