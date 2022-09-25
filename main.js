@@ -398,7 +398,7 @@ async function parsePerf( pCTX, pJdata)
         states: {0: 'ok', 1: 'warning', 2: 'error', 3: 'delayed'}
     });
 
-    // TODO: for each line ???
+    // TODO: check if more than one line could be returned
     await updateState(baseId + '.message', pJdata.lines[0].message, 0, {
         name: 'message',
         type: 'string',
@@ -519,8 +519,6 @@ async function executeQuery ( pCTX, pQuery) {
  * @return  nothing
  *
  */
-//TODO: bei Timeout error muss loop abgebrochen werden
-//TODO: states invalidieren dazu hash anlegen der states einer query enthälts
 async function scanDevice ( pCTX ){
     const name = pCTX.name;
     adapter.log.debug('[' + name + '] scanDevice starting');
@@ -770,7 +768,7 @@ function startAdapter(options) {
         //},
 
         // message callback is called whenever some message was sent to this instance over message box.
-        message: onMessage,
+        // message: onMessage,
 
     }));
 }
@@ -824,19 +822,19 @@ async function onReady() {
  *
  * @param   pObj     object  message object
  * @return
- *
+ *  *** reserved for future use ***
  */
-function onMessage (pObj) {
-    if (typeof pObj === 'object' && pObj.message) {
-        if (pObj.command === 'send') {
-            // e.g. send email or pushover or whatever
-            adapter.log.info('send command');
-
-            // Send response in callback if required
-            if (pObj.callback) adapter.sendTo(pObj.from, pObj.command, 'Message received', pObj.callback);
-        }
-    }
-}
+//function onMessage (pObj) {
+//    if (typeof pObj === 'object' && pObj.message) {
+//        if (pObj.command === 'send') {
+//            // e.g. send email or pushover or whatever
+//            adapter.log.info('send command');
+//
+//            // Send response in callback if required
+//            if (pObj.callback) adapter.sendTo(pObj.from, pObj.command, 'Message received', pObj.callback);
+//        }
+//    }
+//}
 
 /**
  * onUnload - called when adapter shuts down

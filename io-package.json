@@ -53,6 +53,14 @@
       "pl": "Monitoruj zdalne systemy za pomocą agenta NSClient++.",
       "zh-cn": "使用 NSClient++ 代理监控远程系统。"
     },
+    "docs": {
+      "en": [
+        "docs/en/nsclient.md"
+      ],
+      "de": [
+        "docs/de/nsclient.md"
+      ]
+    },
     "authors": [
       "mcm1957 <mcm57@gmx.at>"
     ],
@@ -68,7 +76,7 @@
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.nsclient/master/admin/nsclient.png",
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.nsclient/blob/master/README.md",
     "loglevel": "info",
-    "messagebox": true,
+    "messagebox": false,
     "mode": "daemon",
     "type": "infrastructure",
     "compact": true,
