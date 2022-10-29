@@ -1,15 +1,15 @@
 {
-    "lblDevs": "Dispositivi",
-    "lblDevsInfo": "Devi specificare almeno sul gruppo OID per aggiungere alcuni dispositivi",
-    "lblDevsDevices": "Dispositivi",
     "lblDevAct": "attivo",
-    "lblDevName": "Nome",
-    "lblDevIpAddr": "Indirizzo IP",
-    "lblDevUser": "Nome utente",
-    "lblDevPwd": "Parola d'ordine",
-    "lblDevPollIntvl": "sondaggi (sec)",
-    "lblDevTimeout": "timeout (sec)",
     "lblDevChkCpu": "controlla cpu",
+    "lblDevChkDrives": "controllare le unità",
     "lblDevChkMem": "controlla la memoria",
-    "lblDevChkDrives": "controllare le unità"
+    "lblDevIpAddr": "Indirizzo IP",
+    "lblDevName": "Nome",
+    "lblDevPollIntvl": "sondaggi (sec)",
+    "lblDevPwd": "Parola d'ordine",
+    "lblDevTimeout": "timeout (sec)",
+    "lblDevUser": "Nome utente",
+    "lblDevs": "Dispositivi",
+    "lblDevsDevices": "Dispositivi",
+    "lblDevsInfo": "Devi specificare almeno sul gruppo OID per aggiungere alcuni dispositivi"
 }

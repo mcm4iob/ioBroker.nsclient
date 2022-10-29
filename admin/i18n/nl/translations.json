@@ -1,15 +1,15 @@
 {
-    "lblDevs": "Apparaten",
-    "lblDevsInfo": "U moet ten minste een OID-groep specificeren om sommige apparaten toe te voegen",
-    "lblDevsDevices": "Apparaten",
     "lblDevAct": "actief",
-    "lblDevName": "Naam",
-    "lblDevIpAddr": "IP adres",
-    "lblDevUser": "gebruikersnaam",
-    "lblDevPwd": "Wachtwoord",
-    "lblDevPollIntvl": "polling (sec)",
-    "lblDevTimeout": "time-out (sec)",
     "lblDevChkCpu": "controleer cpu",
+    "lblDevChkDrives": "controleer schijven",
     "lblDevChkMem": "geheugen controleren",
-    "lblDevChkDrives": "controleer schijven"
+    "lblDevIpAddr": "IP adres",
+    "lblDevName": "Naam",
+    "lblDevPollIntvl": "polling (sec)",
+    "lblDevPwd": "Wachtwoord",
+    "lblDevTimeout": "time-out (sec)",
+    "lblDevUser": "gebruikersnaam",
+    "lblDevs": "Apparaten",
+    "lblDevsDevices": "Apparaten",
+    "lblDevsInfo": "U moet ten minste een OID-groep specificeren om sommige apparaten toe te voegen"
 }

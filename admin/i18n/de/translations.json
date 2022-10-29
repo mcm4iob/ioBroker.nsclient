@@ -1,15 +1,15 @@
 {
-    "lblDevs": "Geräte",
-    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um einige Geräte hinzuzufügen",
-    "lblDevsDevices": "Geräte",
     "lblDevAct": "aktiv",
-    "lblDevName": "Name",
-    "lblDevIpAddr": "IP Adresse",
-    "lblDevUser": "Nutzername",
-    "lblDevPwd": "Passwort",
-    "lblDevPollIntvl": "Abfrage (Sek.)",
-    "lblDevTimeout": "Zeitüberschreitung (Sek.)",
     "lblDevChkCpu": "CPU prüfen",
+    "lblDevChkDrives": "Laufwerke prüfen",
     "lblDevChkMem": "Speicher prüfen",
-    "lblDevChkDrives": "Laufwerke prüfen"
+    "lblDevIpAddr": "IP Adresse",
+    "lblDevName": "Name",
+    "lblDevPollIntvl": "Abfrage (Sek.)",
+    "lblDevPwd": "Passwort",
+    "lblDevTimeout": "Zeitüberschreitung (Sek.)",
+    "lblDevUser": "Nutzername",
+    "lblDevs": "Geräte",
+    "lblDevsDevices": "Geräte",
+    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um einige Geräte hinzuzufügen"
 }

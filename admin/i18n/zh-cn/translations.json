@@ -1,15 +1,15 @@
 {
-    "lblDevs": "设备",
-    "lblDevsInfo": "您必须至少指定 OID 组才能添加一些设备",
-    "lblDevsDevices": "设备",
     "lblDevAct": "积极的",
-    "lblDevName": "姓名",
-    "lblDevIpAddr": "IP地址",
-    "lblDevUser": "用户名",
-    "lblDevPwd": "密码",
-    "lblDevPollIntvl": "轮询（秒）",
-    "lblDevTimeout": "超时（秒）",
     "lblDevChkCpu": "检查CPU",
+    "lblDevChkDrives": "检查驱动器",
     "lblDevChkMem": "检查内存",
-    "lblDevChkDrives": "检查驱动器"
+    "lblDevIpAddr": "IP地址",
+    "lblDevName": "姓名",
+    "lblDevPollIntvl": "轮询（秒）",
+    "lblDevPwd": "密码",
+    "lblDevTimeout": "超时（秒）",
+    "lblDevUser": "用户名",
+    "lblDevs": "设备",
+    "lblDevsDevices": "设备",
+    "lblDevsInfo": "您必须至少指定 OID 组才能添加一些设备"
 }

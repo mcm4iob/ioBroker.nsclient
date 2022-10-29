@@ -1,15 +1,15 @@
 {
-    "lblDevs": "Устройства",
-    "lblDevsInfo": "Вы должны указать хотя бы группу OID, чтобы добавить некоторые устройства",
-    "lblDevsDevices": "Устройства",
     "lblDevAct": "активный",
-    "lblDevName": "Имя",
-    "lblDevIpAddr": "Айпи адрес",
-    "lblDevUser": "Имя пользователя",
-    "lblDevPwd": "Пароль",
-    "lblDevPollIntvl": "опрос (сек)",
-    "lblDevTimeout": "время ожидания (сек)",
     "lblDevChkCpu": "проверить процессор",
+    "lblDevChkDrives": "проверить диски",
     "lblDevChkMem": "проверить память",
-    "lblDevChkDrives": "проверить диски"
+    "lblDevIpAddr": "Айпи адрес",
+    "lblDevName": "Имя",
+    "lblDevPollIntvl": "опрос (сек)",
+    "lblDevPwd": "Пароль",
+    "lblDevTimeout": "время ожидания (сек)",
+    "lblDevUser": "Имя пользователя",
+    "lblDevs": "Устройства",
+    "lblDevsDevices": "Устройства",
+    "lblDevsInfo": "Вы должны указать хотя бы группу OID, чтобы добавить некоторые устройства"
 }

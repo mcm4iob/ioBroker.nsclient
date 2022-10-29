@@ -1,15 +1,15 @@
 {
-    "lblDevs":          "Devices",
-    "lblDevsInfo":      "You must specify at least on OID group to add some devices",
-    "lblDevsDevices":   "Devices",
-    "lblDevAct":        "active",
-    "lblDevName":       "Name",
-    "lblDevIpAddr":     "IP Address",
-    "lblDevUser":       "Username",
-    "lblDevPwd":        "Password",
-    "lblDevPollIntvl":  "polling (sec)",
-    "lblDevTimeout":    "timeout (sec)",
-    "lblDevChkCpu":     "check cpu",
-    "lblDevChkMem":     "check memory",
-    "lblDevChkDrives":  "check drives"     
+    "lblDevAct": "active",
+    "lblDevChkCpu": "check cpu",
+    "lblDevChkDrives": "check drives",
+    "lblDevChkMem": "check memory",
+    "lblDevIpAddr": "IP Address",
+    "lblDevName": "Name",
+    "lblDevPollIntvl": "polling (sec)",
+    "lblDevPwd": "Password",
+    "lblDevTimeout": "timeout (sec)",
+    "lblDevUser": "Username",
+    "lblDevs": "Devices",
+    "lblDevsDevices": "Devices",
+    "lblDevsInfo": "You must specify at least on OID group to add some devices"
 }
