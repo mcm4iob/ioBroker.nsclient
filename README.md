@@ -10,6 +10,9 @@
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-sadapters/ioBroker.nsclient/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## nsclient adapter for ioBroker
 
 This adapter monitors remote systems using NSClient++ agent.
