@@ -569,7 +569,7 @@ function startReaderThreads() {
     for (let ii = 0; ii < CTXs.length; ii++) {
         const CTX = CTXs[ii];
         setImmediate(scanDevice, CTX);
-        CTX.pollTimer = setInterval(scanDevice, CTX.pollIntvl, CTX);
+        CTX.pollTimer = adapter.setInterval(scanDevice, CTX.pollIntvl, CTX);
     }
 }
 
@@ -808,7 +808,7 @@ async function onReady() {
 
     // start connection info updater
     //    adapter.log.debug('startconnection info updater');
-    //    g_connUpdateTimer = setInterval(handleConnectionInfo, 15000)
+    //    g_connUpdateTimer = adapter.setInterval(handleConnectionInfo, 15000)
 
     // NOTE: info.connection should be handled better
     await adapter.setStateAsync('info.connection', true, true);
@@ -857,7 +857,7 @@ function onUnload(callback) {
         // close session if one exists
         if (CTX.pollTimer) {
             try {
-                clearInterval(CTX.pollTimer);
+                adapter.clearInterval(CTX.pollTimer);
             } catch (e) { console.log(e); }
             CTX.pollTimer = null;
         }
@@ -865,7 +865,7 @@ function onUnload(callback) {
 
     //    if (g_connUpdateTimer) {
     //        try {
-    //            clearInterval(g_connUpdateTimer);
+    //            adapter.clearInterval(g_connUpdateTimer);
     //        } catch { };
     //        g_connUpdateTimer = null;
     //    };
