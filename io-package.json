@@ -113,7 +113,9 @@
             }
         }
     },
-    "native": {},
+    "native": {
+        "devs" : []
+    },
     "objects": [],
     "instanceObjects": [
         {

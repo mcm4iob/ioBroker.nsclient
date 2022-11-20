@@ -48,6 +48,9 @@ This adapter supports an unlimited number of devices with configurable polling i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) missing config data has been added to io-package.json (#15)
+
 ### 0.1.1 (2022-09-25)
 * (mcm1957) initial release for testing
 
