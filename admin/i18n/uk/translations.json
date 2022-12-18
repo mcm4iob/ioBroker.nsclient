@@ -1,0 +1,15 @@
+{
+    "lblDevAct": "активний",
+    "lblDevChkCpu": "перевірити процесор",
+    "lblDevChkDrives": "перевірити диски",
+    "lblDevChkMem": "перевірити пам'ять",
+    "lblDevIpAddr": "IP-адреса",
+    "lblDevName": "Ім'я",
+    "lblDevPollIntvl": "опитування (сек)",
+    "lblDevPwd": "Пароль",
+    "lblDevTimeout": "тайм-аут (с)",
+    "lblDevUser": "Ім'я користувача",
+    "lblDevs": "Пристрої",
+    "lblDevsDevices": "Пристрої",
+    "lblDevsInfo": "Ви повинні вказати принаймні групу OID, щоб додати деякі пристрої"
+}
