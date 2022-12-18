@@ -2,13 +2,14 @@
 # ioBroker.nsclient
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.nsclient.svg)](https://www.npmjs.com/package/iobroker.nsclient)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.nsclient.svg)](https://www.npmjs.com/package/iobroker.nsclient)
-![Number of Installations](https://iobroker.live/badges/nsclient-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/nsclient-stable.svg)
+![Number of Installations](https://iobroker.live/badges/nsclient-installed.svg)
+
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.nsclient/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/nsclient/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.admin.svg)](https://www.npmjs.com/package/iobroker.nsclient)
 
 [![NPM](https://nodei.co/npm/iobroker.nsclient.png?downloads=true)](https://nodei.co/npm/iobroker.nsclient/)
-
-**Tests:** ![Test and Release](https://github.com/iobroker-community-sadapters/ioBroker.nsclient/workflows/Test%20and%20Release/badge.svg)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
