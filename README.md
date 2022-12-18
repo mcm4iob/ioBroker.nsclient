@@ -7,7 +7,7 @@
 
 [![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.nsclient/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/nsclient/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.admin.svg)](https://www.npmjs.com/package/iobroker.nsclient)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.nsclient.svg)](https://www.npmjs.com/package/iobroker.nsclient)
 
 [![NPM](https://nodei.co/npm/iobroker.nsclient.png?downloads=true)](https://nodei.co/npm/iobroker.nsclient/)
 
