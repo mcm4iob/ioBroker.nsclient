@@ -3,13 +3,13 @@
     "lblDevChkCpu": "check cpu",
     "lblDevChkDrives": "check drives",
     "lblDevChkMem": "check memory",
-    "lblDevIpAddr": "IP Address",
+    "lblDevIpAddr": "IP address",
     "lblDevName": "Name",
-    "lblDevPollIntvl": "polling (sec)",
+    "lblDevPollIntvl": "Polling (sec)",
     "lblDevPwd": "Password",
-    "lblDevTimeout": "timeout (sec)",
+    "lblDevTimeout": "Timeout (sec)",
     "lblDevUser": "Username",
     "lblDevs": "Devices",
     "lblDevsDevices": "Devices",
-    "lblDevsInfo": "You must specify at least on OID group to add some devices"
+    "lblDevsInfo": "You must specify at least one OID group to add some devices."
 }

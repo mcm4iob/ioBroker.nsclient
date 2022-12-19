@@ -8,8 +8,8 @@
     "lblDevPollIntvl": "Abfrage (Sek.)",
     "lblDevPwd": "Passwort",
     "lblDevTimeout": "Zeitüberschreitung (Sek.)",
-    "lblDevUser": "Nutzername",
+    "lblDevUser": "Benutzername",
     "lblDevs": "Geräte",
     "lblDevsDevices": "Geräte",
-    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um einige Geräte hinzuzufügen"
+    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um Geräte hinzuzufügen."
 }
