@@ -3,7 +3,7 @@
     "lblDevChkCpu": "check cpu",
     "lblDevChkDrives": "check drives",
     "lblDevChkMem": "check memory",
-    "lblDevIpAddr": "IP address",
+    "lblDevIpAddr": "IP-Address",
     "lblDevName": "Name",
     "lblDevPollIntvl": "Polling (sec)",
     "lblDevPwd": "Password",
