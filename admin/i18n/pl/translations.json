@@ -11,5 +11,5 @@
     "lblDevUser": "Nazwa użytkownika",
     "lblDevs": "Urządzenia",
     "lblDevsDevices": "Urządzenia",
-    "lblDevsInfo": "Aby dodać kilka urządzeń, musisz określić przynajmniej grupę OID"
+    "lblDevsInfo": "Aby dodać kilka urządzeń, musisz określić przynajmniej grupę OID."
 }

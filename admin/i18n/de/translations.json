@@ -3,7 +3,7 @@
     "lblDevChkCpu": "CPU prüfen",
     "lblDevChkDrives": "Laufwerke prüfen",
     "lblDevChkMem": "Speicher prüfen",
-    "lblDevIpAddr": "IP Adresse",
+    "lblDevIpAddr": "IP-Adresse",
     "lblDevName": "Name",
     "lblDevPollIntvl": "Abfrage (Sek.)",
     "lblDevPwd": "Passwort",

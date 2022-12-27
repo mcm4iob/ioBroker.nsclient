@@ -11,5 +11,5 @@
     "lblDevUser": "Nom d'utilisateur",
     "lblDevs": "Dispositifs",
     "lblDevsDevices": "Dispositifs",
-    "lblDevsInfo": "Vous devez spécifier au moins un groupe OID pour ajouter des appareils"
+    "lblDevsInfo": "Vous devez spécifier au moins un groupe OID pour ajouter des appareils."
 }
