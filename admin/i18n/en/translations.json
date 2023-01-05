@@ -10,6 +10,5 @@
     "lblDevTimeout": "Timeout (sec)",
     "lblDevUser": "Username",
     "lblDevs": "Devices",
-    "lblDevsDevices": "Devices",
-    "lblDevsInfo": "You must specify at least one OID group to add some devices."
+    "lblDevsDevices": "Devices"
 }
