@@ -10,6 +10,5 @@
     "lblDevTimeout": "limit czasu (s)",
     "lblDevUser": "Nazwa użytkownika",
     "lblDevs": "Urządzenia",
-    "lblDevsDevices": "Urządzenia",
-    "lblDevsInfo": "Aby dodać kilka urządzeń, musisz określić przynajmniej grupę OID."
+    "lblDevsDevices": "Urządzenia"
 }

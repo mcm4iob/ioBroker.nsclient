@@ -10,6 +10,5 @@
     "lblDevTimeout": "тайм-аут (с)",
     "lblDevUser": "Ім'я користувача",
     "lblDevs": "Пристрої",
-    "lblDevsDevices": "Пристрої",
-    "lblDevsInfo": "Ви повинні вказати принаймні групу OID, щоб додати деякі пристрої."
+    "lblDevsDevices": "Пристрої"
 }
