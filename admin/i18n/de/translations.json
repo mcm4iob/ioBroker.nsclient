@@ -10,6 +10,5 @@
     "lblDevTimeout": "Zeitüberschreitung (Sek.)",
     "lblDevUser": "Benutzername",
     "lblDevs": "Geräte",
-    "lblDevsDevices": "Geräte",
-    "lblDevsInfo": "Sie müssen mindestens eine OID-Gruppe angeben, um Geräte hinzuzufügen."
+    "lblDevsDevices": "Geräte"
 }

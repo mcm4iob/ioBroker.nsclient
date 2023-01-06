@@ -10,6 +10,5 @@
     "lblDevTimeout": "délai d'attente (sec)",
     "lblDevUser": "Nom d'utilisateur",
     "lblDevs": "Dispositifs",
-    "lblDevsDevices": "Dispositifs",
-    "lblDevsInfo": "Vous devez spécifier au moins un groupe OID pour ajouter des appareils."
+    "lblDevsDevices": "Dispositifs"
 }

@@ -10,6 +10,5 @@
     "lblDevTimeout": "超时（秒）",
     "lblDevUser": "用户名",
     "lblDevs": "设备",
-    "lblDevsDevices": "设备",
-    "lblDevsInfo": "您必须至少指定 OID 组才能添加一些设备."
+    "lblDevsDevices": "设备"
 }

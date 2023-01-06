@@ -10,6 +10,5 @@
     "lblDevTimeout": "time-out (sec)",
     "lblDevUser": "gebruikersnaam",
     "lblDevs": "Apparaten",
-    "lblDevsDevices": "Apparaten",
-    "lblDevsInfo": "U moet ten minste een OID-groep specificeren om sommige apparaten toe te voegen."
+    "lblDevsDevices": "Apparaten"
 }
