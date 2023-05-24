@@ -18,8 +18,6 @@ For more details and for information how to disable the error reporting see [Sen
 
 This adapter monitors remote systems using NSClient++ agent.
 
-_ THIS ADAPTER IS UNDER DEVELOPMENT _
-
 ## General Requirements and Features
 
 This adapter requires an NsClient++ agent to be installed at the target system, This agent is available for Windows (tested with Windows 10 and Windows 11) and Linux. The NsClient++ software is describes and available [here](https://nsclient.org/) free of charge.
