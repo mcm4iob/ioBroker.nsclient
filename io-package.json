@@ -1,161 +1,174 @@
 {
-    "common": {
-        "name": "nsclient",
-        "version": "0.1.2",
-        "news": {
-            "0.1.2": {
-                "en": "missing config data has been added to io-package.json (#15)\ntimer functions have been replaced with iob adapter versions (#22)\nsupport for sentry has been added (#23)",
-                "de": "fehlende config-daten wurden io-package.json #(15) hinzugefügt\ntimer-funktionen wurden durch iob adapter-versionen #(22) ersetzt\nunterstützung für sentry wurde #(23) hinzugefügt",
-                "ru": "отсутствует конфиг данных добавлен в io-package.json #(15)\nфункции таймера были заменены на iob адаптер версии #(22)\nдобавлена поддержка для отправки #(23)",
-                "pt": "faltando dados de configuração foi adicionado ao io-package.json #(15)\nfunções do temporizador foram substituídas por versões do adaptador iob #(22)\nsuporte para sentinela foi adicionado #(23)",
-                "nl": "ontbrekende config gegevens zijn toegevoegd aan io-package\nde timerfuncties zijn vervangen door iob adapter versies\n_",
-                "fr": "les données de configuration manquantes ont été ajoutées à io-package.json #(15)\nles fonctions temporelles ont été remplacées par les versions d'iob adaptateur #(22)\nle support de la sentinelle a été ajouté #(23)",
-                "it": "i dati mancanti di configurazione sono stati aggiunti a io-package.json #(15)\nle funzioni timer sono state sostituite con le versioni dell'adattatore iob #(22)\nsupporto per la sentinella è stato aggiunto #(23)",
-                "es": "datos de configuración desaparecidos se ha añadido a io-package.json #(15)\nlas funciones timer han sido reemplazadas con las versiones de adaptador iob #(22)\nsoporte para centinela se ha añadido #(23)",
-                "pl": "brak danych konfigumentowych został dodany do io-package.json #(15)\nfunkcje czasowe zostały zastąpione iob adapterowymi wersjami #(22)\nwsparcie dla osób wysyłanych było #(23)",
-                "uk": "відсутні дані config були додані в io-package.json #(15)\nфункції таймера були замінені на версії iob адаптера #(22)\nдодано підтримку відправника no(23)",
-                "zh-cn": "稀释数据被添加到碘剂。\n时间职能已改为“乘数”版(22)\n添加了用于托运的辅助行动(23)"
-            },
-            "0.1.1": {
-                "en": "initial release for testing",
-                "de": "erstauslösung für tests",
-                "ru": "начальный выпуск для тестирования",
-                "pt": "lançamento inicial para testes",
-                "nl": "eerste vrijlating voor testen",
-                "fr": "libération initiale pour les essais",
-                "it": "rilascio iniziale per test",
-                "es": "liberación inicial para pruebas",
-                "pl": "wstępna wersja testowania",
-                "zh-cn": "试验的初步释放",
-                "uk": "початковий випуск для тестування"
-            },
-            "0.1.0": {
-                "en": "initial release for testing",
-                "de": "erstauslösung für tests",
-                "ru": "начальный выпуск для тестирования",
-                "pt": "lançamento inicial para testes",
-                "nl": "eerste vrijlating voor testen",
-                "fr": "libération initiale pour les essais",
-                "it": "rilascio iniziale per test",
-                "es": "liberación inicial para pruebas",
-                "pl": "wstępna wersja testowania",
-                "zh-cn": "试验的初步释放",
-                "uk": "початковий випуск для тестування"
-            },
-            "0.0.0": {
-                "en": "initial release",
-                "de": "erstausstrahlung",
-                "ru": "начальный выпуск",
-                "pt": "lançamento inicial",
-                "nl": "niet",
-                "fr": "initial release",
-                "it": "rilascio iniziale",
-                "es": "liberación inicial",
-                "pl": "pierwsze wydanie",
-                "zh-cn": "初步释放",
-                "uk": "початковий випуск"
-            }
-        },
-        "title": "NSClient++ Monitor",
-        "titleLang": {
-            "en": "NSClient++ Monitor",
-            "de": "NSClient++-Monitor",
-            "ru": "Монитор NSClient++",
-            "pt": "Monitor NSClient++",
-            "nl": "NSClient++-monitor",
-            "fr": "Moniteur NSClient++",
-            "it": "Monitor NSClient++",
-            "es": "Monitor de NSClient++",
-            "pl": "Monitor NSClient++",
-            "zh-cn": "NSClient++ 监视器",
-            "uk": "Монітор NSClient++"
-        },
-        "desc": {
-            "en": "This adapter monitors remote systems using NSClient++ agent.",
-            "de": "Dieser Adapter ermöglicht die Überwachung entfernter Systeme mittels NSClient++-Agenten.",
-            "ru": "Контролируйте удаленные системы с помощью агента NSClient++.",
-            "pt": "Monitore sistemas remotos usando o agente NSClient++.",
-            "nl": "Bewaak externe systemen met behulp van NSClient++ agent.",
-            "fr": "Surveillez les systèmes distants à l'aide de l'agent NSClient++.",
-            "it": "Monitora i sistemi remoti utilizzando l'agente NSClient++.",
-            "es": "Supervise los sistemas remotos mediante el agente NSClient++.",
-            "pl": "Monitoruj zdalne systemy za pomocą agenta NSClient++.",
-            "zh-cn": "使用 NSClient++ 代理监控远程系统。",
-            "uk": "Цей адаптер контролює віддалені системи за допомогою агента NSClient++."
-        },
-        "docs": {
-            "en": [
-                "docs/en/nsclient.md"
-            ],
-            "de": [
-                "docs/de/nsclient.md"
-            ]
-        },
-        "authors": [
-            "mcm1957 <mcm57@gmx.at>"
-        ],
-        "keywords": [
-            "monitoring",
-            "nsclient++"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "nsclient.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.nsclient/master/admin/nsclient.png",
-        "readme": "https://github.com/iobroker-community-adapters/ioBroker.nsclient/blob/master/README.md",
-        "loglevel": "info",
-        "messagebox": false,
-        "mode": "daemon",
-        "type": "infrastructure",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://88c5966010c140a0a0fdf4239c5fbffc@sentry.iobroker.net/217"
-            }
-        }
+  "common": {
+    "name": "nsclient",
+    "version": "0.2.0",
+    "news": {
+      "0.2.0": {
+        "en": "This adapter requires node 18 or newer now\nDependencies have been updated",
+        "de": "Dieser Adapter benötigt nun node 18 oder neuer\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Этот адаптер требует ноды 18 или новее сейчас\nВ зависимости были обновлены",
+        "pt": "Este adaptador requer nó 18 ou mais recente agora\nAs dependências foram atualizadas",
+        "nl": "Deze adapter vereist node 18 of Newer nu\nAfhankelijkheid",
+        "fr": "Cet adaptateur nécessite 18 ans ou plus maintenant\nLes dépendances ont été mises à jour",
+        "it": "Questo adattatore richiede ora il nodo 18 o più nuovo\nLe dipendenze sono state aggiornate",
+        "es": "Este adaptador requiere nodo 18 o nuevo ahora\nSe han actualizado las dependencias",
+        "pl": "Dopasowanie to wymaga węzła 18 lub nowszego\nZależności zostały zaktualizowane",
+        "uk": "Цей адаптер вимагає вузла 18 або новіший зараз\nОновлено залежність",
+        "zh-cn": "这种适应者现在不需要18个或新的人员。\n已更新了属地"
+      },
+      "0.1.2": {
+        "en": "missing config data has been added to io-package.json (#15)\ntimer functions have been replaced with iob adapter versions (#22)\nsupport for sentry has been added (#23)",
+        "de": "fehlende config-daten wurden io-package.json #(15) hinzugefügt\ntimer-funktionen wurden durch iob adapter-versionen #(22) ersetzt\nunterstützung für sentry wurde #(23) hinzugefügt",
+        "ru": "отсутствует конфиг данных добавлен в io-package.json #(15)\nфункции таймера были заменены на iob адаптер версии #(22)\nдобавлена поддержка для отправки #(23)",
+        "pt": "faltando dados de configuração foi adicionado ao io-package.json #(15)\nfunções do temporizador foram substituídas por versões do adaptador iob #(22)\nsuporte para sentinela foi adicionado #(23)",
+        "nl": "ontbrekende config gegevens zijn toegevoegd aan io-package\nde timerfuncties zijn vervangen door iob adapter versies\n_",
+        "fr": "les données de configuration manquantes ont été ajoutées à io-package.json #(15)\nles fonctions temporelles ont été remplacées par les versions d'iob adaptateur #(22)\nle support de la sentinelle a été ajouté #(23)",
+        "it": "i dati mancanti di configurazione sono stati aggiunti a io-package.json #(15)\nle funzioni timer sono state sostituite con le versioni dell'adattatore iob #(22)\nsupporto per la sentinella è stato aggiunto #(23)",
+        "es": "datos de configuración desaparecidos se ha añadido a io-package.json #(15)\nlas funciones timer han sido reemplazadas con las versiones de adaptador iob #(22)\nsoporte para centinela se ha añadido #(23)",
+        "pl": "brak danych konfigumentowych został dodany do io-package.json #(15)\nfunkcje czasowe zostały zastąpione iob adapterowymi wersjami #(22)\nwsparcie dla osób wysyłanych było #(23)",
+        "uk": "відсутні дані config були додані в io-package.json #(15)\nфункції таймера були замінені на версії iob адаптера #(22)\nдодано підтримку відправника no(23)",
+        "zh-cn": "稀释数据被添加到碘剂。\n时间职能已改为“乘数”版(22)\n添加了用于托运的辅助行动(23)"
+      },
+      "0.1.1": {
+        "en": "initial release for testing",
+        "de": "erstauslösung für tests",
+        "ru": "начальный выпуск для тестирования",
+        "pt": "lançamento inicial para testes",
+        "nl": "eerste vrijlating voor testen",
+        "fr": "libération initiale pour les essais",
+        "it": "rilascio iniziale per test",
+        "es": "liberación inicial para pruebas",
+        "pl": "wstępna wersja testowania",
+        "zh-cn": "试验的初步释放",
+        "uk": "початковий випуск для тестування"
+      },
+      "0.1.0": {
+        "en": "initial release for testing",
+        "de": "erstauslösung für tests",
+        "ru": "начальный выпуск для тестирования",
+        "pt": "lançamento inicial para testes",
+        "nl": "eerste vrijlating voor testen",
+        "fr": "libération initiale pour les essais",
+        "it": "rilascio iniziale per test",
+        "es": "liberación inicial para pruebas",
+        "pl": "wstępna wersja testowania",
+        "zh-cn": "试验的初步释放",
+        "uk": "початковий випуск для тестування"
+      },
+      "0.0.0": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "начальный выпуск",
+        "pt": "lançamento inicial",
+        "nl": "niet",
+        "fr": "initial release",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "pierwsze wydanie",
+        "zh-cn": "初步释放",
+        "uk": "початковий випуск"
+      }
     },
-    "native": {
-        "devs": []
+    "title": "NSClient++ Monitor",
+    "titleLang": {
+      "en": "NSClient++ Monitor",
+      "de": "NSClient++-Monitor",
+      "ru": "Монитор NSClient++",
+      "pt": "Monitor NSClient++",
+      "nl": "NSClient++-monitor",
+      "fr": "Moniteur NSClient++",
+      "it": "Monitor NSClient++",
+      "es": "Monitor de NSClient++",
+      "pl": "Monitor NSClient++",
+      "zh-cn": "NSClient++ 监视器",
+      "uk": "Монітор NSClient++"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    ]
+    "desc": {
+      "en": "This adapter monitors remote systems using NSClient++ agent.",
+      "de": "Dieser Adapter ermöglicht die Überwachung entfernter Systeme mittels NSClient++-Agenten.",
+      "ru": "Контролируйте удаленные системы с помощью агента NSClient++.",
+      "pt": "Monitore sistemas remotos usando o agente NSClient++.",
+      "nl": "Bewaak externe systemen met behulp van NSClient++ agent.",
+      "fr": "Surveillez les systèmes distants à l'aide de l'agent NSClient++.",
+      "it": "Monitora i sistemi remoti utilizzando l'agente NSClient++.",
+      "es": "Supervise los sistemas remotos mediante el agente NSClient++.",
+      "pl": "Monitoruj zdalne systemy za pomocą agenta NSClient++.",
+      "zh-cn": "使用 NSClient++ 代理监控远程系统。",
+      "uk": "Цей адаптер контролює віддалені системи за допомогою агента NSClient++."
+    },
+    "docs": {
+      "en": [
+        "docs/en/nsclient.md"
+      ],
+      "de": [
+        "docs/de/nsclient.md"
+      ]
+    },
+    "authors": [
+      "mcm1957 <mcm57@gmx.at>"
+    ],
+    "keywords": [
+      "monitoring",
+      "nsclient++"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "nsclient.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.nsclient/master/admin/nsclient.png",
+    "readme": "https://github.com/iobroker-community-adapters/ioBroker.nsclient/blob/master/README.md",
+    "loglevel": "info",
+    "messagebox": false,
+    "mode": "daemon",
+    "type": "infrastructure",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://88c5966010c140a0a0fdf4239c5fbffc@sentry.iobroker.net/217"
+      }
+    }
+  },
+  "native": {
+    "devs": []
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }

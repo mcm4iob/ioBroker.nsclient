@@ -47,7 +47,7 @@ This adapter supports an unlimited number of devices with configurable polling i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.0 (2023-09-11)
 * (mcm1957) This adapter requires node 18 or newer now
 * (mcm1957) Dependencies have been updated
 
