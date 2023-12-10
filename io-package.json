@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "news": {
+      "0.2.1": {
+        "en": "Adapter has been moved to mcm4iob organization.\nDependencies have been updated",
+        "de": "Adapter wurde auf mcm4iob Organisation verschoben.\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Адаптер переехал в организацию mcm4iob.\nВ зависимости были обновлены",
+        "pt": "O adaptador foi movido para a organização mcm4iob.\nAs dependências foram atualizadas",
+        "nl": "Adapter is verplaatst naar McM4iob organisatie.\nAfhankelijkheid",
+        "fr": "Adaptateur a été déplacé à mcm4iob organisation.\nLes dépendances ont été mises à jour",
+        "it": "L'adattatore è stato spostato all'organizzazione mcm4iob.\nLe dipendenze sono state aggiornate",
+        "es": "Adaptador ha sido trasladado a la organización mcm4iob.\nSe han actualizado las dependencias",
+        "pl": "Adapter przeniesiono do organizacji mcm4iob.\nZależności zostały zaktualizowane",
+        "uk": "Переміщено перехід до організації mcm4iob.\nОновлено залежність",
+        "zh-cn": "现已移到Mcm4iob组织。.\n已更新了属地"
+      },
       "0.2.0": {
         "en": "This adapter requires node 18 or newer now\nDependencies have been updated",
         "de": "Dieser Adapter benötigt nun node 18 oder neuer\nAbhängigkeiten wurden aktualisiert",
