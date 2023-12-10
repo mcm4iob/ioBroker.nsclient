@@ -47,7 +47,7 @@ This adapter supports an unlimited number of devices with configurable polling i
 
 ## Documentation
 
-[english documentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/en)
+[english documentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/en)  
 [deutsche Dokumentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/de)
 
 ## Changelog
