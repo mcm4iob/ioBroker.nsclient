@@ -1,15 +1,23 @@
 ![Logo](admin/nsclient.png)
 # ioBroker.nsclient
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.nsclient.svg)](https://www.npmjs.com/package/iobroker.nsclient)
-![Current version in stable repository](https://iobroker.live/badges/nsclient-stable.svg)
-![Number of Installations](https://iobroker.live/badges/nsclient-installed.svg)
-
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.nsclient/workflows/Test%20and%20Release/badge.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/nsclient/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.nsclient.svg)](https://www.npmjs.com/package/iobroker.nsclient)
-
-[![NPM](https://nodei.co/npm/iobroker.nsclient.png?downloads=true)](https://nodei.co/npm/iobroker.nsclient/)
+[![GitHub license](https://img.shields.io/github/license/mcm4iob/iobroker.nsclient)](https://github.com/mcm4iob/iobroker.nsclient/blob/main/LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
+![GitHub repo size](https://img.shields.io/github/repo-size/mcm4iob/iobroker.nsclient)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mcm4iob/iobroker.nsclient)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/mcm4iob/iobroker.nsclient/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/mcm4iob/iobroker.nsclient)
+![GitHub issues](https://img.shields.io/github/issues/mcm4iob/iobroker.nsclient)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
+![Current version in stable repository](https://iobroker.live/badges/pid-stable.svg)
+![Number of Installations](https://iobroker.live/badges/pid-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/mcm4iob/iobroker.nsclient/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/iobroker.nsclient/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/mcm4iob/iobroker.nsclient/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/iobroker.nsclient/actions/workflows/codeql.yml)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -39,14 +47,18 @@ This adapter supports an unlimited number of devices with configurable polling i
 
 ## Documentation
 
-[english documentation](https://github.com/iobroker-community-adapters/ioBroker.nsclient/tree/master/docs/en)
-[deutsche Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.nsclient/tree/master/docs/de)
+[english documentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/en)
+[deutsche Dokumentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/de)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter has been moved to mcm41iob organization.
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.0 (2023-09-11)
 * (mcm1957) This adapter requires node 18 or newer now
 * (mcm1957) Dependencies have been updated
