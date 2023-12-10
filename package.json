@@ -1,6 +1,6 @@
 {
   "name": "iobroker.nsclient",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Monitor remote systems using NSClient++ agent.",
   "author": {
     "name": "mcm1957",

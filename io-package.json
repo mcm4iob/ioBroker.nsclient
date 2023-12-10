@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "news": {
+      "0.2.2": {
+        "en": "Sentry has been activated.",
+        "de": "Sentry wurde aktiviert.",
+        "ru": "Сфера активирована.",
+        "pt": "Sentry foi activado.",
+        "nl": "Sentry is geactiveerd.",
+        "fr": "Sentry a été activé.",
+        "it": "Sentry è stato attivato.",
+        "es": "Sentry ha sido activado.",
+        "pl": "Sentry został aktywowany.",
+        "uk": "Активоване лікування.",
+        "zh-cn": "投入已经启动。."
+      },
       "0.2.1": {
         "en": "Adapter has been moved to mcm4iob organization.\nDependencies have been updated",
         "de": "Adapter wurde auf mcm4iob Organisation verschoben.\nAbhängigkeiten wurden aktualisiert",
