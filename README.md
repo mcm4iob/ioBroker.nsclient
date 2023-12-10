@@ -56,7 +56,7 @@ This adapter supports an unlimited number of devices with configurable polling i
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (mcm1957) Activate sentry.
+* (mcm1957) Sentry has been activated.
 
 ### 0.2.1 (2023-12-10)
 * (mcm1957) Adapter has been moved to mcm4iob organization.
