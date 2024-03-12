@@ -55,6 +55,9 @@ This adapter supports an unlimited number of devices with configurable polling i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.2 (2023-12-10)
 * (mcm1957) Sentry has been activated.
 
@@ -77,7 +80,7 @@ This adapter supports an unlimited number of devices with configurable polling i
 ## License
 MIT License
 
-Copyright (c) 2022-2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2022-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
