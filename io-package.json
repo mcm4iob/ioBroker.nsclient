@@ -166,7 +166,7 @@
     ],
     "plugins": {
       "sentry": {
-        "dsn": "https://88c5966010c140a0a0fdf4239c5fbffc@sentry.iobroker.net/217"
+        "dsn": "https://22a9ddba676848bd91f893f974e304e2@o4504185128484864.ingest.us.sentry.io/4504185186746368"
       }
     }
   },
