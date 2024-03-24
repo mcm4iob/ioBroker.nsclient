@@ -85,7 +85,10 @@ jobs:
         # Then uncomment and customize the following block:
           sentry: true
           sentry-token: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          sentry-url: "https://sentry.io"
+          sentry-org: "mcm4iob"
           sentry-project: "iobroker-nsclient"
           sentry-version-prefix: "iobroker.nsclient"
           # If your sentry project is linked to a GitHub repository, you can enable the following option
           sentry-github-integration: true
+          
