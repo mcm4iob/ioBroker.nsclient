@@ -9,6 +9,7 @@
   "homepage": "https://github.com/mcm4iob/ioBroker.nsclient",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "monitoring",
     "nsclient++"
   ],
