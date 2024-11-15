@@ -137,9 +137,11 @@
       "monitoring",
       "nsclient++"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "nsclient.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/mcm4iob/ioBroker.nsclient/master/admin/nsclient.png",
@@ -147,6 +149,7 @@
     "loglevel": "info",
     "messagebox": false,
     "mode": "daemon",
+    "tier": 2,
     "type": "infrastructure",
     "compact": true,
     "connectionType": "local",
@@ -156,12 +159,12 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=3.3.22"
+        "js-controller": ">=5.0.19"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=5.1.13"
+        "admin": ">=6.14.17"
       }
     ],
     "plugins": {
