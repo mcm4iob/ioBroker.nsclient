@@ -8,10 +8,12 @@
             "items": {                        
                 "devs": {
                     "type": "table",
-					"newLine": true,
+		    "newLine": true,
+                    "xs": 12,
                     "sm": 12,
                     "md": 12,
                     "lg": 12,
+                    "xl": 12,
                     "label": "lblDevsDevices",
                     "showSecondAddAt":5,
                     "items": [
@@ -117,5 +119,5 @@
                 }
             }
         }
-	}
+    }
 }
