@@ -55,6 +55,11 @@ This adapter supports an unlimited number of devices with configurable polling i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** 
+* (mcm1957) Adapter requires node.js 20 or newer now
+* (mcm1957) Adapter requires js-controller 6.0.11 and admin 7.4.10 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.3 (2024-03-12)
 * (mcm1957) Dependencies have been updated
 
