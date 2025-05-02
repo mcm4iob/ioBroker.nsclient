@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "nsclient",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "news": {
+      "0.3.0": {
+        "en": "Adapter requires node.js 20 or newer now\nAdapter requires js-controller 6.0.11 and admin 7.4.10 now\nDependencies have been updated",
+        "de": "Adapter benötigt nun node.js 20 oder neuer\nAdapter benötigt nun js-controller 6.0.11 und admin 7.4.10\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Адаптер требует node.js 20 или новее\nАдаптер требует js-контроллер 6.0.11 и админ 7.4.10\nЗависимости были обновлены",
+        "pt": "Adaptador requer node.js 20 ou mais recente agora\nAdaptador requer js-controller 6.0.11 e admin 7.4.10 agora\nAs dependências foram atualizadas",
+        "nl": "Adapter vereist node.js 20 of nieuwer nu\nAdapter vereist js-controller 6.0.11 en admin 7.4.10 nu\nAfhankelijkheden zijn bijgewerkt",
+        "fr": "Adaptateur nécessite node.js 20 ou plus récent maintenant\nAdaptateur nécessite js-controller 6.0.11 et admin 7.4.10 maintenant\nLes dépendances ont été actualisées",
+        "it": "Adattatore richiede node.js 20 o più nuovo ora\nAdattatore richiede js-controller 6.0.11 e admin 7.4.10 ora\nLe dipendenze sono state aggiornate",
+        "es": "Adaptador requiere node.js 20 o nuevo ahora\nAdaptador requiere js-controller 6.0.11 y admin 7.4.10 ahora\nSe han actualizado las dependencias",
+        "pl": "Adapter wymaga node.js 20 lub nowsze teraz\nAdapter wymaga sterownika js- 6.0.11 i admin 7.4.10 teraz\nZaktualizowano zależności",
+        "uk": "Адаптер вимагає node.js 20 або новіший зараз\nАдаптер вимагає js-controller 6.0.11 і admin 7.4.10 тепер\nЗалежність було оновлено",
+        "zh-cn": "适配器需要节点 js 20 或 新的现在\n适配器需要js控制器 6.0.11 和 admin 7.4.10 现在\n依赖关系已更新"
+      },
       "0.2.3": {
         "en": "Dependencies have been updated",
         "de": "Abhängigkeiten wurden aktualisiert",
@@ -69,19 +82,6 @@
         "zh-cn": "稀释数据被添加到碘剂。\n时间职能已改为“乘数”版(22)\n添加了用于托运的辅助行动(23)"
       },
       "0.1.1": {
-        "en": "initial release for testing",
-        "de": "erstauslösung für tests",
-        "ru": "начальный выпуск для тестирования",
-        "pt": "lançamento inicial para testes",
-        "nl": "eerste vrijlating voor testen",
-        "fr": "libération initiale pour les essais",
-        "it": "rilascio iniziale per test",
-        "es": "liberación inicial para pruebas",
-        "pl": "wstępna wersja testowania",
-        "zh-cn": "试验的初步释放",
-        "uk": "початковий випуск для тестування"
-      },
-      "0.1.0": {
         "en": "initial release for testing",
         "de": "erstauslösung für tests",
         "ru": "начальный выпуск для тестирования",
