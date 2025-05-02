@@ -50,6 +50,14 @@ This adapter supports an unlimited number of devices with configurable polling i
 [english documentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/en)  
 [deutsche Dokumentation](https://github.com/mcm4iob/ioBroker.nsclient/tree/master/docs/de)
 
+**************************************************************************************************************
+
+**If you like it, please consider a donation:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+
+**************************************************************************************************************
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
