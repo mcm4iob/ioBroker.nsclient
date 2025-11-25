@@ -9,7 +9,7 @@ updates:
       timezone: "Europe/Berlin"
       cronjob: "46 1 22 * *"
     open-pull-requests-limit: 20
-  versioning-strategy: "increase"
+    versioning-strategy: "increase"
 
   - package-ecosystem: "github-actions"
     directory: "/"
