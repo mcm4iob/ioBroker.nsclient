@@ -132,7 +132,7 @@ const utils = require('@iobroker/adapter-core');
 //const { EXIT_CODES } = require('@iobroker/js-controller-common');
 
 // Load modules required by adapter
-const https = require('https');
+const https = require('node:https');
 
 // #################### global variables ####################
 let adapter; // adapter instance - @type {ioBroker.Adapter}
