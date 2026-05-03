@@ -90,6 +90,8 @@ This adapter supports an unlimited number of devices with configurable polling i
 ### 0.1.1 (2022-09-25)
 * (mcm1957) initial release for testing
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
